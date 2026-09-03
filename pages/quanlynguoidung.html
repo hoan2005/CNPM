@@ -1,0 +1,730 @@
+<!-- ==================== PHÂN VÙNG QUẢN LÝ NGƯỜI DÙNG (LOAD ĐỘNG VÀO MAIN) ==================== -->
+<div class="flex flex-col w-full pb-8 space-y-6">
+
+    <!-- 1. Header & Quick Actions -->
+    <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4 pt-1">
+        <div class="space-y-1">
+            <div class="flex items-center gap-2">
+                <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Quản lý Khách hàng & Người dùng</h2>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    LIVE SYNC
+                </span>
+            </div>
+            <p class="text-sm text-slate-500 max-w-3xl">
+                Quản lý hồ sơ hành khách, lịch sử đặt vé liên tỉnh, phân hạng thành viên thân thiết và kiểm soát an toàn tài khoản trên toàn hệ thống VeloBus.
+            </p>
+        </div>
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 font-semibold text-sm hover:bg-slate-100 border border-slate-200 transition-colors shadow-sm" type="button">
+                <span class="material-symbols-outlined text-slate-500 text-lg">download</span>
+                <span>Xuất dữ liệu Excel</span>
+            </button>
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 font-semibold text-sm hover:bg-slate-100 border border-slate-200 transition-colors shadow-sm" type="button">
+                <span class="material-symbols-outlined text-slate-500 text-lg">campaign</span>
+                <span>Gửi thông báo broadcast</span>
+            </button>
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" type="button">
+                <span class="material-symbols-outlined text-lg">person_add</span>
+                <span>+ Thêm người dùng mới</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 2. KPI Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Tổng khách hàng</span>
+                    <span class="text-3xl text-slate-800 font-extrabold mt-1">12.420</span>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                    <span class="material-symbols-outlined text-2xl">group</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-2 text-xs border-t border-slate-100">
+                <span class="inline-flex items-center gap-0.5 text-emerald-600 font-mono font-bold">
+                    <span class="material-symbols-outlined text-base">arrow_upward</span> +12%
+                </span>
+                <span class="text-slate-400">vs tháng trước (+1.340 mới)</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Hội viên VIP & Vàng</span>
+                    <span class="text-3xl text-slate-800 font-extrabold mt-1">2.845</span>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
+                    <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-2 text-xs border-t border-slate-100">
+                <span class="inline-block px-2 py-0.5 rounded bg-slate-100 text-blue-600 font-mono font-bold">22.9%</span>
+                <span class="text-slate-400">Doanh thu toàn mạng lưới</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Mới trong tuần</span>
+                    <span class="text-3xl text-slate-800 font-extrabold mt-1">315</span>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600">
+                    <span class="material-symbols-outlined text-2xl">app_shortcut</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-2 text-xs border-t border-slate-100">
+                <span class="inline-flex items-center text-sky-600 font-mono font-bold">78%</span>
+                <span class="text-slate-400">Tải đặt qua Mobile App iOS/Android</span>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Cảnh báo / Cần duyệt</span>
+                    <span class="text-3xl text-red-600 font-extrabold mt-1">18</span>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center text-red-600">
+                    <span class="material-symbols-outlined text-2xl">shield_person</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-2 text-xs border-t border-slate-100">
+                <span class="inline-block px-1.5 py-0.5 rounded bg-red-100 text-red-700 font-mono font-bold">15 Hủy vé</span>
+                <span class="text-slate-400">3 tài khoản trùng lặp</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Filter Bar & Quick Tags -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+            <!-- Search -->
+            <div class="md:col-span-5 relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3.5 text-slate-400 pointer-events-none text-xl">search</span>
+                <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 border border-slate-200 transition-all" placeholder="Tìm theo tên khách hàng, SĐT, email, mã KH (KH-xxxx)..." type="text"/>
+            </div>
+            <!-- Filters -->
+            <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div class="relative">
+                    <select class="w-full appearance-none px-3.5 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl border border-slate-200 focus:outline-none focus:bg-white transition-all pr-8">
+                        <option value="">Hạng hội viên: Tất cả</option>
+                        <option value="diamond">VIP Kim Cương</option>
+                        <option value="gold">Hạng Vàng</option>
+                        <option value="silver">Hạng Bạc</option>
+                        <option value="standard">Phổ thông</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                </div>
+                <div class="relative">
+                    <select class="w-full appearance-none px-3.5 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl border border-slate-200 focus:outline-none focus:bg-white transition-all pr-8">
+                        <option value="">Kênh: Tất cả</option>
+                        <option value="app">Mobile App (iOS/Android)</option>
+                        <option value="web">Website VeloBus</option>
+                        <option value="counter">Quầy vé bến xe POS</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                </div>
+                <div class="relative">
+                    <select class="w-full appearance-none px-3.5 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl border border-slate-200 focus:outline-none focus:bg-white transition-all pr-8">
+                        <option value="">Trạng thái: Tất cả</option>
+                        <option value="active">Đang hoạt động</option>
+                        <option value="pending">Chờ xác thực OTP</option>
+                        <option value="locked">Tạm khóa</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Tags -->
+        <div class="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-100">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">Bộ lọc nhanh:</span>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium hover:bg-slate-200 transition-colors" type="button">
+                <span class="material-symbols-outlined text-sm text-blue-600">payments</span>
+                <span>Chi tiêu > 5.000.000đ</span>
+            </button>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium hover:bg-slate-200 transition-colors" type="button">
+                <span class="material-symbols-outlined text-sm text-sky-600">schedule</span>
+                <span>Đặt vé 30 ngày qua</span>
+            </button>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium hover:bg-slate-200 transition-colors" type="button">
+                <span class="material-symbols-outlined text-sm text-red-500">celebration</span>
+                <span>Đặt vé Tết 2025</span>
+            </button>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium hover:bg-slate-200 transition-colors" type="button">
+                <span class="material-symbols-outlined text-sm text-emerald-600">verified</span>
+                <span>Đã xác minh CCCD/CMND</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 4. Customer Data Table Container -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-[11px] font-bold uppercase tracking-wider">
+                        <th class="py-3.5 px-4 w-10">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </th>
+                        <th class="py-3.5 px-4 min-w-[240px]">Khách hàng & Mã ĐD</th>
+                        <th class="py-3.5 px-4 min-w-[210px]">Thông tin liên hệ</th>
+                        <th class="py-3.5 px-4 min-w-[150px]">Hạng thành viên</th>
+                        <th class="py-3.5 px-4 min-w-[170px] text-right">Tổng vé / Doanh thu</th>
+                        <th class="py-3.5 px-4 min-w-[230px]">Chuyến đi gần nhất</th>
+                        <th class="py-3.5 px-4 min-w-[130px]">Trạng thái</th>
+                        <th class="py-3.5 px-4 text-center w-28">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
+                    <!-- Row 1: VIP Diamond -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Nguyễn Thị Thanh Hằng" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC38hv9pxVVEMU9NDLSC9mWiZZfjsymZ1SVxlwew938dAm5kIbtimaLr04LlR8Amny4y38inOD7ACYUBclik7TzTVpqD-4kGgzq5eo1lt93xSqUJOldtHKkv3PTCc7bSjQXgQ0gOBnOCFFQVnfwvdNN78akxIhCN9xRp75j05XCtVOfDUo7Z2sfzlMteghH395eLLLDYX_MWjWvTTPChczWSpoUdgIViRojdGV8P3Yp2YWR9tjsSnfy"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Nguyễn Thị Thanh Hằng</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <span class="text-xs text-blue-600 font-bold font-mono">KH-0892</span>
+                                        <span class="text-xs text-slate-400">• ĐK 14/01/2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5 text-slate-800">
+                                    <span class="material-symbols-outlined text-sm text-slate-400">phone</span>
+                                    <span class="font-mono text-xs">0912 345 889</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-slate-500">
+                                    <span class="material-symbols-outlined text-sm">mail</span>
+                                    <span class="text-xs truncate max-w-[170px]">hang.nguyen@gmail.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">diamond</span>
+                                VIP Kim Cương
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col">
+                                <span class="font-mono text-sm font-bold text-slate-900">14.250.000 đ</span>
+                                <span class="text-xs text-slate-400">34 chuyến hoàn tất</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-slate-800">Sài Gòn ⇄ Đà Lạt</span>
+                                <span class="text-xs text-slate-400">14:30 hôm qua (Limousine 34)</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Hoạt động
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <div class="flex items-center justify-center gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Lịch sử vé">
+                                    <span class="material-symbols-outlined text-lg">confirmation_number</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined text-lg">edit</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors" title="Khóa tài khoản">
+                                    <span class="material-symbols-outlined text-lg">lock_open</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2: Gold Tier -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Trần Đình Khoa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtjZ5QSV8zgdQnjpqSx0RPErDu8aaBZEXjzO8Vl4ifUs2P0P1wLxSVNkCQNpqMmUtXwjqkagnmzj6wJnKmAXHjF0YqRYHmRQOLG6eVURn3j83OerIy7YV7ufBlw3fqN9akoHf9dBDRrZ0nWDxCXvQUJFCztzYoUInJ2hxRYzQxcnQHgqL94VmERxrg1ssTYMRQywUbArPZnTCPB--pRbV8_V7wcjVeCSB7HduHpiZRxwHEGfhl3HnH"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Trần Đình Khoa</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <span class="text-xs text-blue-600 font-bold font-mono">KH-0412</span>
+                                        <span class="text-xs text-slate-400">• ĐK 03/05/2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5 text-slate-800">
+                                    <span class="material-symbols-outlined text-sm text-slate-400">phone</span>
+                                    <span class="font-mono text-xs">0988 123 456</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-slate-500">
+                                    <span class="material-symbols-outlined text-sm">mail</span>
+                                    <span class="text-xs truncate max-w-[170px]">dinhkhoa.it@velomail.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">stars</span>
+                                Hạng Vàng
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col">
+                                <span class="font-mono text-sm font-bold text-slate-900">7.800.000 đ</span>
+                                <span class="text-xs text-slate-400">18 chuyến hoàn tất</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-slate-800">Hà Nội ⇄ Sa Pa</span>
+                                <span class="text-xs text-slate-400">26/09/2024 (Cabin Royal)</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Hoạt động
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <div class="flex items-center justify-center gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Lịch sử vé">
+                                    <span class="material-symbols-outlined text-lg">confirmation_number</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined text-lg">edit</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors" title="Khóa tài khoản">
+                                    <span class="material-symbols-outlined text-lg">lock_open</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3: Silver Tier -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm flex-shrink-0">
+                                    LQ
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Lê Quốc Bảo</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <span class="text-xs text-blue-600 font-bold font-mono">KH-0238</span>
+                                        <span class="text-xs text-slate-400">• ĐK 19/11/2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5 text-slate-800">
+                                    <span class="material-symbols-outlined text-sm text-slate-400">phone</span>
+                                    <span class="font-mono text-xs">0903 999 112</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-slate-500">
+                                    <span class="material-symbols-outlined text-sm">mail</span>
+                                    <span class="text-xs truncate max-w-[170px]">quocbao.le@saigonbus.vn</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">military_tech</span>
+                                Hạng Bạc
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col">
+                                <span class="font-mono text-sm font-bold text-slate-900">2.450.000 đ</span>
+                                <span class="text-xs text-slate-400">7 chuyến hoàn tất</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-slate-800">Đà Nẵng ⇄ Quy Nhơn</span>
+                                <span class="text-xs text-slate-400">08:00 ngày 12/10/2024</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                                Chờ kích hoạt
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <div class="flex items-center justify-center gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Lịch sử vé">
+                                    <span class="material-symbols-outlined text-lg">confirmation_number</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined text-lg">edit</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors" title="Khóa tài khoản">
+                                    <span class="material-symbols-outlined text-lg">lock_open</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 4: Suspended Account -->
+                    <tr class="hover:bg-slate-50/80 transition-colors bg-red-50/30">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-sm flex-shrink-0">
+                                    PV
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="flex items-center gap-1.5">
+                                        <p class="font-semibold text-slate-900 truncate">Phạm Văn Vũ</p>
+                                        <span class="material-symbols-outlined text-base text-red-500" title="Cảnh báo an ninh">warning</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <span class="text-xs text-red-600 font-bold font-mono">KH-0915</span>
+                                        <span class="text-xs text-slate-400">• ĐK 02/09/2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5 text-slate-800">
+                                    <span class="material-symbols-outlined text-sm text-slate-400">phone</span>
+                                    <span class="font-mono text-xs">0977 444 881</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-slate-500">
+                                    <span class="material-symbols-outlined text-sm">mail</span>
+                                    <span class="text-xs truncate max-w-[170px]">vu.pham99@outlook.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium">
+                                <span class="material-symbols-outlined text-sm">person</span>
+                                Phổ thông
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col">
+                                <span class="font-mono text-sm font-bold text-slate-900">620.000 đ</span>
+                                <span class="text-xs text-red-600 font-semibold">2 chuyến (Hủy 6 lần)</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-slate-800">Sài Gòn ⇄ Vũng Tàu</span>
+                                <span class="text-xs text-red-500">Hủy sát giờ khởi hành</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-xs font-semibold w-max">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                                    Tạm khóa
+                                </span>
+                                <span class="text-[10px] text-red-500 mt-0.5">Hủy vé 6 lần liên tiếp</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <div class="flex items-center justify-center gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Lịch sử vé">
+                                    <span class="material-symbols-outlined text-lg">confirmation_number</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined text-lg">edit</span>
+                                </button>
+                                <button class="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Mở khóa tài khoản">
+                                    <span class="material-symbols-outlined text-lg">lock</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 5: Gold Tier -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Võ Hoàng Yến Nhi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNEQRX-dU2_2tNp_IcWp0fNPfXdd4d-JmcG9glzLGKYVUVZEi9PF0sa-y_8FaPuqcSwA5ohaCgRJegAnwCF6TCmiB65RA5j-t5hzoYjGxjvNpPeQKUdBi5ahUbptOI39XmRhI4Wc70Z6WutUkwQ5eSODri_ns1KgaQW2Z_RtTx572XBjAqSRkE8TNeXkhNeFsoDLzAYcifnJwjLcftGF-jApl0XbehliTR7WX228SapCjtkkUHEhDv"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Võ Hoàng Yến Nhi</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <span class="text-xs text-blue-600 font-bold font-mono">KH-0155</span>
+                                        <span class="text-xs text-slate-400">• ĐK 10/10/2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5 text-slate-800">
+                                    <span class="material-symbols-outlined text-sm text-slate-400">phone</span>
+                                    <span class="font-mono text-xs">0934 567 890</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-slate-500">
+                                    <span class="material-symbols-outlined text-sm">mail</span>
+                                    <span class="text-xs truncate max-w-[170px]">yennhi.vo@vinatrans.vn</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">stars</span>
+                                Hạng Vàng
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col">
+                                <span class="font-mono text-sm font-bold text-slate-900">8.120.000 đ</span>
+                                <span class="text-xs text-slate-400">21 chuyến hoàn tất</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-slate-800">Sài Gòn ⇄ Cần Thơ</span>
+                                <span class="text-xs text-slate-400">19:00 ngày 24/10/2024</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Hoạt động
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <div class="flex items-center justify-center gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Lịch sử vé">
+                                    <span class="material-symbols-outlined text-lg">confirmation_number</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Chỉnh sửa">
+                                    <span class="material-symbols-outlined text-lg">edit</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors" title="Khóa tài khoản">
+                                    <span class="material-symbols-outlined text-lg">lock_open</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table Pagination Footer -->
+        <div class="p-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2 text-slate-500">
+                <span>Hiển thị <strong class="text-slate-800 font-mono">1 - 5</strong> trong tổng số <strong class="text-slate-800 font-mono">12.420</strong> khách hàng</span>
+                <div class="hidden md:flex items-center gap-1 pl-2 border-l border-slate-200">
+                    <span>Dòng mỗi trang:</span>
+                    <select class="bg-slate-50 text-slate-800 font-mono font-bold rounded-lg border border-slate-200 py-1 px-2 focus:outline-none">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex items-center gap-1">
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors disabled:opacity-40" disabled>
+                    <span class="material-symbols-outlined text-sm">chevron_left</span>
+                </button>
+                <button class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold font-mono">1</button>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-mono">2</button>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-mono">3</button>
+                <span class="px-1 text-slate-400 font-mono">...</span>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-mono">1242</button>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors">
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Bottom Split: Channel Distribution & Recent Activity Feed -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left Column: Channel & Retention Insights (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between gap-4">
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-base font-bold text-slate-800">Kênh đăng ký & Tỷ lệ quay lại</h3>
+                    <span class="material-symbols-outlined text-sky-600 text-2xl">donut_large</span>
+                </div>
+                <p class="text-xs text-slate-500">Phân bổ nguồn đặt vé và độ gắn kết của khách hàng đối với dịch vụ xe khách VeloBus.</p>
+            </div>
+
+            <!-- Channel Progress Bars -->
+            <div class="space-y-3">
+                <div class="space-y-1">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="font-semibold text-slate-800 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-base text-blue-600">phone_iphone</span> Mobile App (iOS / Android)
+                        </span>
+                        <span class="font-mono text-blue-600 font-bold">65%</span>
+                    </div>
+                    <div class="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden">
+                        <div class="h-full bg-blue-600 rounded-full" style="width: 65%;"></div>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="font-semibold text-slate-800 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-base text-sky-600">desktop_windows</span> Cổng thông tin Website VeloBus
+                        </span>
+                        <span class="font-mono text-sky-600 font-bold">25%</span>
+                    </div>
+                    <div class="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden">
+                        <div class="h-full bg-sky-500 rounded-full" style="width: 25%;"></div>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="font-semibold text-slate-800 flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-base text-slate-500">point_of_sale</span> Quầy vé bến xe & Đại lý POS
+                        </span>
+                        <span class="font-mono text-slate-500 font-bold">10%</span>
+                    </div>
+                    <div class="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden">
+                        <div class="h-full bg-slate-400 rounded-full" style="width: 10%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retention Highlight Box -->
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-xl">repeat</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-semibold text-slate-800">Tỷ lệ giữ chân (Retention Rate)</span>
+                        <span class="text-[11px] text-slate-400">Khách đặt từ 2 chuyến trở lên trong 90 ngày</span>
+                    </div>
+                </div>
+                <span class="text-xl font-bold text-emerald-600 font-mono">78.4%</span>
+            </div>
+        </div>
+
+        <!-- Right Column: Real-time Event Stream (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between gap-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-base font-bold text-slate-800">Hoạt động Đặt vé & Khách hàng Gần nhất</h3>
+                    <p class="text-xs text-slate-400">Dòng sự kiện cập nhật tức thời theo luồng thanh toán và hành trình xe</p>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">
+                    Thời gian thực
+                </span>
+            </div>
+
+            <!-- Event Stream List -->
+            <div class="space-y-3">
+                <!-- Event Item 1 -->
+                <div class="flex items-start gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                    <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-lg">check_circle</span>
+                    </div>
+                    <div class="flex flex-col flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2">
+                            <p class="text-xs font-medium text-slate-800 truncate">
+                                <span class="text-blue-600 font-bold">Trần Đình Khoa</span> hoàn tất thanh toán vé <strong>Sài Gòn ⇄ Nha Trang</strong>
+                            </p>
+                            <span class="font-mono text-[11px] text-slate-400 flex-shrink-0">3 phút trước</span>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-0.5">
+                            Mã vé: <span class="font-mono text-blue-600 font-bold">VB-88912</span> • Ghế: B04 (Tầng 2 Limousine VIP) • Số tiền: 420.000 đ
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event Item 2 -->
+                <div class="flex items-start gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                    <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                    </div>
+                    <div class="flex flex-col flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2">
+                            <p class="text-xs font-medium text-slate-800 truncate">
+                                <span class="text-blue-600 font-bold">Nguyễn Văn Quang</span> gửi yêu cầu đổi chuyến <strong>Hà Nội ⇄ Vinh</strong>
+                            </p>
+                            <span class="font-mono text-[11px] text-slate-400 flex-shrink-0">18 phút trước</span>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-0.5">
+                            Từ chuyến 07:00 sang 13:30 cùng ngày (28/10/2024) • Đang chờ điều phối trạm duyệt
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event Item 3 -->
+                <div class="flex items-start gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                    <div class="w-9 h-9 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-lg">military_tech</span>
+                    </div>
+                    <div class="flex flex-col flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2">
+                            <p class="text-xs font-medium text-slate-800 truncate">
+                                <span class="text-blue-600 font-bold">Lê Bích Ngọc</span> đạt mốc điểm nâng hạng <strong>Hội viên Vàng</strong>
+                            </p>
+                            <span class="font-mono text-[11px] text-slate-400 flex-shrink-0">45 phút trước</span>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-0.5">
+                            Tích lũy 15 chuyến hoàn tất trong năm 2024 • Tự động kích hoạt quyền lợi giảm 10% vé đón trả tận nơi
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action link -->
+            <div class="flex items-center justify-end border-t border-slate-100 pt-2">
+                <a class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline" href="#">
+                    <span>Xem tất cả 184 nhật ký hoạt động hôm nay</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,732 @@
+<!-- ==================== PHÂN VÙNG THỐNG KÊ DOANH THU (LOAD ĐỘNG VÀO MAIN) ==================== -->
+<div class="flex flex-col w-full pb-8 space-y-6">
+
+    <!-- Top Action & Filter Header Banner -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+        <div class="space-y-1">
+            <div class="flex items-center gap-2">
+                <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Báo cáo & Thống kê Doanh thu</h2>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Đồng bộ tức thời (Live)
+                </span>
+            </div>
+            <p class="text-sm text-slate-500 max-w-2xl">
+                Theo dõi chỉ số dòng tiền, doanh thu theo tuyến xe, phương thức thanh toán và phân tích tăng trưởng tài chính VeloBus.
+            </p>
+        </div>
+        <!-- Actions Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 font-semibold text-sm hover:bg-slate-100 border border-slate-200 transition-colors shadow-sm" type="button">
+                <span class="material-symbols-outlined text-slate-500 text-lg">print</span>
+                <span>In báo cáo tài chính</span>
+            </button>
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" type="button">
+                <span class="material-symbols-outlined text-lg">download</span>
+                <span>Xuất dữ liệu Excel / PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Filter Bar: Periods & Route Scopes -->
+    <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-2 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+        <!-- Period Selector Pill Group -->
+        <div class="flex items-center overflow-x-auto p-1 bg-slate-50 rounded-xl">
+            <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition-all" type="button">Hôm nay</button>
+            <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition-all" type="button">7 ngày qua</button>
+            <button class="px-3.5 py-1.5 rounded-lg bg-white text-xs font-bold text-blue-600 shadow-sm border border-slate-200/60" type="button">Tháng này</button>
+            <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition-all" type="button">Quý này</button>
+            <div class="h-4 w-px bg-slate-200 mx-1"></div>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-700 hover:bg-white transition-all" type="button">
+                <span class="material-symbols-outlined text-base text-blue-600">calendar_today</span>
+                <span>01/10/2024 - 31/10/2024</span>
+            </button>
+        </div>
+
+        <!-- Route Selector dropdown & Filter trigger -->
+        <div class="flex items-center gap-2">
+            <div class="relative min-w-[240px]">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">alt_route</span>
+                <select class="w-full pl-9 pr-8 py-2 bg-slate-50 text-slate-800 text-xs font-medium rounded-xl border border-slate-200 appearance-none focus:outline-none focus:bg-white transition-all cursor-pointer">
+                    <option value="all">Tất cả các tuyến đường (48 Tuyến)</option>
+                    <option value="sgn-dla">TP.HCM ⇄ Đà Lạt</option>
+                    <option value="han-sap">Hà Nội ⇄ Sa Pa</option>
+                    <option value="sgn-ntr">TP.HCM ⇄ Nha Trang</option>
+                    <option value="dan-qnh">Đà Nẵng ⇄ Quy Nhơn</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg pointer-events-none">expand_more</span>
+            </div>
+            <button class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors" title="Làm mới dữ liệu" type="button">
+                <span class="material-symbols-outlined text-lg">refresh</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 4 Key Financial KPI Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <!-- KPI Card 1 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Tổng doanh thu tháng</span>
+                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                    <span class="material-symbols-outlined text-xl">payments</span>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="text-2xl font-extrabold text-slate-800">2.845.600.000 <span class="text-xs font-normal text-slate-400">đ</span></div>
+                <div class="flex items-center gap-2 mt-2">
+                    <span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                        <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                        +15.8%
+                    </span>
+                    <span class="text-xs text-slate-400">so với tháng trước</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 bg-slate-50 -mx-5 -mb-5 px-5 py-2 flex items-center justify-between border-t border-slate-100 text-xs">
+                <span class="text-slate-500">Kế hoạch quý Q4</span>
+                <span class="font-mono font-bold text-emerald-600">94.8% hoàn thành</span>
+            </div>
+        </div>
+
+        <!-- KPI Card 2 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Doanh thu TB / Chuyến</span>
+                <div class="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600">
+                    <span class="material-symbols-outlined text-xl">airport_shuttle</span>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="text-2xl font-extrabold text-slate-800">14.280.000 <span class="text-xs font-normal text-slate-400">đ</span></div>
+                <div class="flex items-center gap-2 mt-2">
+                    <span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                        <span class="material-symbols-outlined text-sm">trending_up</span>
+                        +8.4%
+                    </span>
+                    <span class="text-xs text-slate-400">suất sinh lời cao</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 bg-slate-50 -mx-5 -mb-5 px-5 py-2 flex items-center justify-between border-t border-slate-100 text-xs">
+                <span class="text-slate-500">Hệ số lấp đầy ghế</span>
+                <span class="font-mono font-bold text-blue-600">88.6% tải khách</span>
+            </div>
+        </div>
+
+        <!-- KPI Card 3 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Doanh thu Trực Tuyến</span>
+                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                    <span class="material-symbols-outlined text-xl">devices</span>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="text-2xl font-extrabold text-slate-800">2.190.500.000 <span class="text-xs font-normal text-slate-400">đ</span></div>
+                <div class="flex items-center gap-2 mt-2">
+                    <span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                        <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                        +22.4%
+                    </span>
+                    <span class="text-xs text-slate-400">App VeloBus & Web</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 bg-slate-50 -mx-5 -mb-5 px-5 py-2 flex items-center justify-between border-t border-slate-100 text-xs">
+                <span class="text-slate-500">Tỷ trọng kênh số</span>
+                <span class="font-mono font-bold text-blue-600">77.0% tổng thu</span>
+            </div>
+        </div>
+
+        <!-- KPI Card 4 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Quầy vé & Đại lý POS</span>
+                <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">
+                    <span class="material-symbols-outlined text-xl">point_of_sale</span>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="text-2xl font-extrabold text-slate-800">655.100.000 <span class="text-xs font-normal text-slate-400">đ</span></div>
+                <div class="flex items-center gap-2 mt-2">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-medium">
+                        23.0% cơ cấu
+                    </span>
+                    <span class="text-xs text-slate-400">bến bãi truyền thống</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 bg-slate-50 -mx-5 -mb-5 px-5 py-2 flex items-center justify-between border-t border-slate-100 text-xs">
+                <span class="text-slate-400">Hoàn vé / Hủy:</span>
+                <span class="font-mono font-semibold text-red-600">38.200.000 đ (1.34%)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visual Analytics: Revenue Growth Line/Bar (8 cols) & Payment Gateway Donut (4 cols) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <!-- 30-Day Revenue Trend (8 Columns) -->
+        <div class="lg:col-span-8 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-base font-bold text-slate-800">Xu hướng Doanh thu 30 ngày (Tháng 10/2024)</h3>
+                            <span class="font-mono text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-600 font-bold">VNĐ</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5">So sánh Doanh thu thực tế vận hành và Chỉ tiêu định mức theo chu kỳ tuần</p>
+                    </div>
+                    <!-- Legend Indicators -->
+                    <div class="flex items-center gap-4 text-xs font-medium">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded bg-blue-600"></span>
+                            <span class="text-slate-800">Doanh thu thực tế</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-0.5 bg-slate-400 rounded-full"></span>
+                            <span class="text-slate-400">Chỉ tiêu kế hoạch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight peak banner -->
+                <div class="flex items-center justify-between p-3 mb-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sky-600 text-lg">verified</span>
+                        <span>Đỉnh doanh thu ngày: <strong class="text-slate-800 font-bold">148.500.000 đ</strong> (Chủ nhật 27/10 - Đợt cao điểm du lịch cuối tuần)</span>
+                    </div>
+                    <span class="font-mono text-emerald-600 font-semibold hidden sm:inline-block">+24.2% so với định mức</span>
+                </div>
+
+                <!-- Custom SVG Financial Chart -->
+                <div class="w-full overflow-hidden">
+                    <svg class="w-full h-64 overflow-visible" preserveAspectRatio="none" viewBox="0 0 760 260">
+                        <defs>
+                            <linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"></stop>
+                                <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0"></stop>
+                            </linearGradient>
+                        </defs>
+                        <!-- Subtle Grid lines -->
+                        <line stroke="#f1f5f9" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="750" y1="30" y2="30"></line>
+                        <line stroke="#f1f5f9" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="750" y1="80" y2="80"></line>
+                        <line stroke="#f1f5f9" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="750" y1="130" y2="130"></line>
+                        <line stroke="#f1f5f9" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="750" y1="180" y2="180"></line>
+                        <line stroke="#e2e8f0" stroke-width="1.5" x1="30" x2="750" y1="230" y2="230"></line>
+                        <!-- Y-Axis Values -->
+                        <text class="text-[10px] fill-slate-400 font-mono font-medium" x="5" y="34">150M</text>
+                        <text class="text-[10px] fill-slate-400 font-mono font-medium" x="5" y="84">100M</text>
+                        <text class="text-[10px] fill-slate-400 font-mono font-medium" x="5" y="134">75M</text>
+                        <text class="text-[10px] fill-slate-400 font-mono font-medium" x="5" y="184">50M</text>
+                        <text class="text-[10px] fill-slate-400 font-mono font-medium" x="5" y="233">0M</text>
+                        <!-- Target Benchmark Dashed Curve -->
+                        <path d="M 50 145 C 130 140, 200 135, 270 130 C 350 120, 440 115, 520 110 C 600 100, 680 95, 740 90" fill="none" opacity="0.75" stroke="#94a3b8" stroke-dasharray="6 4" stroke-width="2"></path>
+                        <!-- Actual Revenue Area Fill -->
+                        <path d="M 50 160 Q 90 140, 130 155 T 210 110 T 290 135 T 370 105 T 450 85 T 530 115 T 610 70 T 685 36 T 740 55 L 740 230 L 50 230 Z" fill="url(#areaGradient)"></path>
+                        <!-- Actual Revenue Solid Trend Line -->
+                        <path d="M 50 160 Q 90 140, 130 155 T 210 110 T 290 135 T 370 105 T 450 85 T 530 115 T 610 70 T 685 36 T 740 55" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-width="3"></path>
+                        <!-- Highlight Key Milestone Points -->
+                        <circle cx="210" cy="110" fill="#ffffff" r="4.5" stroke="#2563eb" stroke-width="2.5"></circle>
+                        <circle cx="450" cy="85" fill="#ffffff" r="4.5" stroke="#2563eb" stroke-width="2.5"></circle>
+                        <circle class="animate-pulse" cx="685" cy="36" fill="#2563eb" r="6" stroke="#ffffff" stroke-width="3"></circle>
+                        <!-- Callout Pin at Peak Point -->
+                        <rect fill="#1d4ed8" height="22" rx="4" width="100" x="635" y="6"></rect>
+                        <text class="text-[11px] fill-white font-mono font-bold" text-anchor="middle" x="685" y="21">148.5M (CN 27/10)</text>
+                    </svg>
+                </div>
+            </div>
+            <!-- X-Axis Timeline Labels -->
+            <div class="grid grid-cols-5 pt-2 text-center text-slate-400 font-mono text-xs">
+                <span>Tuần 1 (01 - 07/10)</span>
+                <span>Tuần 2 (08 - 14/10)</span>
+                <span>Tuần 3 (15 - 21/10)</span>
+                <span class="font-bold text-blue-600">Tuần 4 (22 - 28/10)</span>
+                <span>Tuần 5 (29 - 31/10)</span>
+            </div>
+        </div>
+
+        <!-- Payment Gateway Share - Donut Chart (4 Columns) -->
+        <div class="lg:col-span-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between mb-1">
+                    <h3 class="text-base font-bold text-slate-800">Cơ cấu Phương thức Thanh toán</h3>
+                    <span class="material-symbols-outlined text-slate-400 text-xl">pie_chart</span>
+                </div>
+                <p class="text-xs text-slate-400 mb-4">Phân bổ tỷ trọng dòng tiền theo cổng thanh toán</p>
+                <!-- Donut Graphic Representation -->
+                <div class="relative flex items-center justify-center my-3">
+                    <svg class="w-44 h-44 -rotate-90" viewBox="0 0 160 160">
+                        <!-- Background Ring -->
+                        <circle cx="80" cy="80" fill="none" r="60" stroke="#f1f5f9" stroke-width="22"></circle>
+                        <!-- VNPAY QR 42% -->
+                        <circle cx="80" cy="80" fill="none" r="60" stroke="#2563eb" stroke-dasharray="158 377" stroke-dashoffset="0" stroke-linecap="round" stroke-width="22"></circle>
+                        <!-- Visa/Master 24% -->
+                        <circle cx="80" cy="80" fill="none" r="60" stroke="#38bdf8" stroke-dasharray="90 377" stroke-dashoffset="-162" stroke-width="22"></circle>
+                        <!-- MoMo 18% -->
+                        <circle cx="80" cy="80" fill="none" r="60" stroke="#10b981" stroke-dasharray="68 377" stroke-dashoffset="-254" stroke-width="22"></circle>
+                        <!-- Bank Transfer 10% -->
+                        <circle cx="80" cy="80" fill="none" r="60" stroke="#cbd5e1" stroke-dasharray="38 377" stroke-dashoffset="-324" stroke-width="22"></circle>
+                        <!-- Cash POS 6% -->
+                        <circle cx="80" cy="80" fill="none" r="60" stroke="#64748b" stroke-dasharray="23 377" stroke-dashoffset="-364" stroke-width="22"></circle>
+                    </svg>
+                    <div class="absolute flex flex-col items-center justify-center text-center">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Tổng cổng</span>
+                        <span class="text-lg font-extrabold text-slate-800">5 Cổng</span>
+                        <span class="font-mono text-xs text-blue-600 font-bold">100%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Detailed Breakdown List -->
+            <div class="space-y-2 mt-4 pt-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-sm bg-blue-600"></span>
+                        <span class="font-semibold text-slate-800">VNPAY QR</span>
+                    </div>
+                    <span class="font-mono font-bold text-slate-800">42.0% <span class="font-normal text-slate-400 text-[11px]">(1.195 tỷ)</span></span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-sm bg-sky-400"></span>
+                        <span class="font-semibold text-slate-800">Thẻ tín dụng (Visa/Master)</span>
+                    </div>
+                    <span class="font-mono font-bold text-slate-800">24.0% <span class="font-normal text-slate-400 text-[11px]">(682.9M)</span></span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></span>
+                        <span class="font-semibold text-slate-800">Ví MoMo</span>
+                    </div>
+                    <span class="font-mono font-bold text-slate-800">18.0% <span class="font-normal text-slate-400 text-[11px]">(512.2M)</span></span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-sm bg-slate-300"></span>
+                        <span class="font-semibold text-slate-800">Chuyển khoản trực tiếp</span>
+                    </div>
+                    <span class="font-mono font-bold text-slate-800">10.0% <span class="font-normal text-slate-400 text-[11px]">(284.5M)</span></span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-sm bg-slate-500"></span>
+                        <span class="font-semibold text-slate-800">Tiền mặt tại phòng vé</span>
+                    </div>
+                    <span class="font-mono font-bold text-slate-800">6.0% <span class="font-normal text-slate-400 text-[11px]">(170.7M)</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Data Table by Bus Route & Vehicle Types -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <!-- Table Header & Action Filter Toolbar -->
+        <div class="p-4 bg-white flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 border-b border-slate-100">
+            <div class="flex flex-col">
+                <h3 class="text-base font-bold text-slate-800">Hiệu quả Tài chính theo Tuyến xe & Dòng xe</h3>
+                <span class="text-xs text-slate-400">Bảng kê chi tiết doanh thu thực tế, sản lượng vé bán và hệ số lợi nhuận gộp</span>
+            </div>
+            <!-- Search and Quick Filter Row -->
+            <div class="flex flex-wrap items-center gap-2">
+                <!-- Search box -->
+                <div class="relative flex items-center w-64">
+                    <span class="material-symbols-outlined text-lg text-slate-400 absolute left-3 pointer-events-none">search</span>
+                    <input class="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 text-slate-800 text-xs placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 border border-slate-200 transition-all" placeholder="Tìm tên tuyến, mã RT..." type="text"/>
+                </div>
+                <!-- Coach Type Filter -->
+                <select class="py-2 px-3 rounded-xl bg-slate-50 text-slate-800 text-xs border border-slate-200 focus:outline-none focus:bg-white transition-all cursor-pointer">
+                    <option value="all">Tất cả loại xe</option>
+                    <option value="limo24">Limousine 24 Phòng</option>
+                    <option value="sleeper34">Giường nằm 34-40 chỗ</option>
+                    <option value="seat28">Ghế ngồi VIP cao cấp</option>
+                </select>
+                <!-- Advanced filter button -->
+                <button class="py-2 px-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 flex items-center gap-1.5 text-xs font-semibold border border-slate-200 transition-colors" type="button">
+                    <span class="material-symbols-outlined text-base">tune</span>
+                    <span>Lọc nâng cao</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Data Table -->
+        <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse text-sm text-slate-700">
+                <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 text-[11px] font-bold uppercase tracking-wider">
+                    <tr>
+                        <th class="py-3.5 px-4" scope="col">Tuyến xe & Mã</th>
+                        <th class="py-3.5 px-4" scope="col">Loại xe & Số chuyến</th>
+                        <th class="py-3.5 px-4 text-right" scope="col">Vé bán / Tổng ghế</th>
+                        <th class="py-3.5 px-4 text-right" scope="col">Doanh thu ròng (VNĐ)</th>
+                        <th class="py-3.5 px-4 text-center" scope="col">Tỷ suất lợi nhuận</th>
+                        <th class="py-3.5 px-4 text-center" scope="col">Tăng trưởng</th>
+                        <th class="py-3.5 px-4 text-right" scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <!-- Row 1 -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-semibold text-slate-900">TP.HCM ⇄ Đà Lạt</span>
+                                <span class="font-mono text-xs text-blue-600 font-bold">RT-SGN-DLA</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="text-slate-800">Limousine VIP 24 phòng</span>
+                                <span class="text-xs text-slate-400">120 chuyến chạy / tháng</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col items-end">
+                                <span class="font-mono text-xs text-slate-800 font-bold">2.750 / 2.880 vé</span>
+                                <div class="flex items-center gap-1 mt-0.5">
+                                    <span class="w-12 bg-slate-100 rounded-full h-1.5 overflow-hidden inline-block">
+                                        <span class="bg-blue-600 h-full block" style="width: 95.5%;"></span>
+                                    </span>
+                                    <span class="text-[11px] text-blue-600 font-semibold">95.5%</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="font-mono font-bold text-slate-900 text-base">885.000.000 đ</span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono text-xs font-bold">
+                                +32.4%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center gap-0.5 text-emerald-600 font-mono text-xs font-bold">
+                                <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +18.2%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết sổ cái tuyến" type="button">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tải bảng kê chi tiết" type="button">
+                                    <span class="material-symbols-outlined text-lg">download_for_offline</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-semibold text-slate-900">Hà Nội ⇄ Sa Pa</span>
+                                <span class="font-mono text-xs text-blue-600 font-bold">RT-HAN-SAP</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="text-slate-800">Giường nằm 34 phòng đôi</span>
+                                <span class="text-xs text-slate-400">98 chuyến chạy / tháng</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col items-end">
+                                <span class="font-mono text-xs text-slate-800 font-bold">2.980 / 3.332 vé</span>
+                                <div class="flex items-center gap-1 mt-0.5">
+                                    <span class="w-12 bg-slate-100 rounded-full h-1.5 overflow-hidden inline-block">
+                                        <span class="bg-blue-600 h-full block" style="width: 89.4%;"></span>
+                                    </span>
+                                    <span class="text-[11px] text-blue-600 font-semibold">89.4%</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="font-mono font-bold text-slate-900 text-base">642.300.000 đ</span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono text-xs font-bold">
+                                +28.6%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center gap-0.5 text-emerald-600 font-mono text-xs font-bold">
+                                <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +12.5%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết sổ cái tuyến" type="button">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tải bảng kê chi tiết" type="button">
+                                    <span class="material-symbols-outlined text-lg">download_for_offline</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-semibold text-slate-900">TP.HCM ⇄ Nha Trang</span>
+                                <span class="font-mono text-xs text-blue-600 font-bold">RT-SGN-NTR</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="text-slate-800">Limousine Royal 22 phòng</span>
+                                <span class="text-xs text-slate-400">84 chuyến chạy / tháng</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col items-end">
+                                <span class="font-mono text-xs text-slate-800 font-bold">1.680 / 1.848 vé</span>
+                                <div class="flex items-center gap-1 mt-0.5">
+                                    <span class="w-12 bg-slate-100 rounded-full h-1.5 overflow-hidden inline-block">
+                                        <span class="bg-blue-600 h-full block" style="width: 90.9%;"></span>
+                                    </span>
+                                    <span class="text-[11px] text-blue-600 font-semibold">90.9%</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="font-mono font-bold text-slate-900 text-base">518.200.000 đ</span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono text-xs font-bold">
+                                +24.1%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center gap-0.5 text-emerald-600 font-mono text-xs font-bold">
+                                <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +9.8%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết sổ cái tuyến" type="button">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tải bảng kê chi tiết" type="button">
+                                    <span class="material-symbols-outlined text-lg">download_for_offline</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-semibold text-slate-900">Đà Nẵng ⇄ Quy Nhơn</span>
+                                <span class="font-mono text-xs text-blue-600 font-bold">RT-DAN-QNH</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="text-slate-800">Giường nằm tiêu chuẩn 40 chỗ</span>
+                                <span class="text-xs text-slate-400">75 chuyến chạy / tháng</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col items-end">
+                                <span class="font-mono text-xs text-slate-800 font-bold">2.420 / 3.000 vé</span>
+                                <div class="flex items-center gap-1 mt-0.5">
+                                    <span class="w-12 bg-slate-100 rounded-full h-1.5 overflow-hidden inline-block">
+                                        <span class="bg-blue-600 h-full block" style="width: 80.6%;"></span>
+                                    </span>
+                                    <span class="text-[11px] text-blue-600 font-semibold">80.6%</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="font-mono font-bold text-slate-900 text-base">448.900.000 đ</span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono text-xs font-bold">
+                                +19.5%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center gap-0.5 text-emerald-600 font-mono text-xs font-bold">
+                                <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +6.3%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết sổ cái tuyến" type="button">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tải bảng kê chi tiết" type="button">
+                                    <span class="material-symbols-outlined text-lg">download_for_offline</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 5 -->
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="font-semibold text-slate-900">Cần Thơ ⇄ Rạch Giá</span>
+                                <span class="font-mono text-xs text-blue-600 font-bold">RT-CTH-RGI</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex flex-col">
+                                <span class="text-slate-800">Ghế ngồi cao cấp 29 chỗ</span>
+                                <span class="text-xs text-slate-400">110 chuyến chạy / tháng</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex flex-col items-end">
+                                <span class="font-mono text-xs text-slate-800 font-bold">2.680 / 3.190 vé</span>
+                                <div class="flex items-center gap-1 mt-0.5">
+                                    <span class="w-12 bg-slate-100 rounded-full h-1.5 overflow-hidden inline-block">
+                                        <span class="bg-blue-600 h-full block" style="width: 84.0%;"></span>
+                                    </span>
+                                    <span class="text-[11px] text-blue-600 font-semibold">84.0%</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="font-mono font-bold text-slate-900 text-base">351.200.000 đ</span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono text-xs font-bold">
+                                +21.2%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="inline-flex items-center gap-0.5 text-emerald-600 font-mono text-xs font-bold">
+                                <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                +4.8%
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem chi tiết sổ cái tuyến" type="button">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tải bảng kê chi tiết" type="button">
+                                    <span class="material-symbols-outlined text-lg">download_for_offline</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UX Pagination Footer -->
+        <div class="p-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <span>
+                Hiển thị <strong class="text-slate-800 font-bold">1 - 5</strong> trong tổng số <strong class="text-slate-800 font-bold">48</strong> tuyến xe
+            </span>
+            <div class="flex items-center gap-1">
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors disabled:opacity-40" disabled type="button">
+                    <span class="material-symbols-outlined text-sm">chevron_left</span>
+                </button>
+                <button class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold font-mono">1</button>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-mono" type="button">2</button>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-mono" type="button">3</button>
+                <span class="px-1 text-slate-400 font-mono">...</span>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-mono" type="button">10</button>
+                <button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors" type="button">
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Reconciliation & Cost Deduction Bottom Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Cost & Marketing Promotion Summary -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-lg">loyalty</span>
+                    </div>
+                    <h4 class="text-base font-bold text-slate-800">Chiết khấu & Ưu đãi chiến dịch</h4>
+                </div>
+                <p class="text-xs text-slate-400 mb-4">Các khoản cấn trừ doanh thu từ mã khuyến mãi, voucher và điểm thưởng thành viên VeloClub</p>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs">
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-blue-600 text-xl">confirmation_number</span>
+                            <div>
+                                <div class="font-semibold text-slate-800">Voucher giảm giá đã kích hoạt</div>
+                                <div class="text-[11px] text-slate-400">Chiến dịch du lịch mùa thu & Flash Sale</div>
+                            </div>
+                        </div>
+                        <span class="font-mono font-bold text-red-600 text-sm">-42.500.000 đ</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs">
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-600 text-xl">stars</span>
+                            <div>
+                                <div class="font-semibold text-slate-800">Điểm thưởng thành viên quy đổi vé</div>
+                                <div class="text-[11px] text-slate-400">Khách hàng hạng Titan & Kim Cương</div>
+                            </div>
+                        </div>
+                        <span class="font-mono font-bold text-red-600 text-sm">-18.200.000 đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                <span>Tổng chi phí kích cầu: <strong class="text-slate-800">60.700.000 đ</strong></span>
+                <span class="text-emerald-600 font-semibold">Chiếm 2.13% tổng doanh thu ròng</span>
+            </div>
+        </div>
+
+        <!-- Payment Gateway Cash Flow Status & Pending Settlement -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">account_balance</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-800">Tiến độ Đối soát Dòng tiền</h4>
+                    </div>
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        98.6% Chuẩn hóa
+                    </span>
+                </div>
+                <p class="text-xs text-slate-400 mb-4">Trạng thái giải ngân định kỳ theo chu kỳ T+1 từ đối tác VNPAY, MoMo, Onepay</p>
+                <div class="space-y-3">
+                    <!-- Progress Bar -->
+                    <div>
+                        <div class="flex items-center justify-between text-xs mb-1.5">
+                            <span class="font-semibold text-slate-800">Đã đối soát & khớp lệnh tiền về tài khoản</span>
+                            <span class="font-mono text-emerald-600 font-bold">2.804.400.000 đ</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full rounded-full" style="width: 98.6%;"></div>
+                        </div>
+                    </div>
+                    <!-- Holding settlement alert -->
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs mt-3">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sky-600 text-xl">hourglass_top</span>
+                            <div>
+                                <span class="font-semibold text-slate-800">Chờ quyết toán cuối kỳ (T+2)</span>
+                                <div class="text-[11px] text-slate-400">Dự kiến hoàn tất vào 17:00 ngày mai</div>
+                            </div>
+                        </div>
+                        <span class="font-mono font-bold text-sky-600 text-sm">41.200.000 đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span class="text-slate-400">Mã chứng từ đối soát: <span class="font-mono text-slate-800 font-semibold">VELO-REC-20241031</span></span>
+                <button class="text-blue-600 hover:underline font-semibold inline-flex items-center gap-0.5" type="button">
+                    <span>Chi tiết cổng</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

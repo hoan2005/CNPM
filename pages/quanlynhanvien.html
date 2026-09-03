@@ -1,0 +1,804 @@
+<!-- ==================== PHÂN VÙNG QUẢN LÝ NHÂN VIÊN (LOAD ĐỘNG VÀO MAIN) ==================== -->
+<div class="flex flex-col w-full pb-8 space-y-6">
+
+    <!-- Top Page Header & Controls -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-1">
+        <div class="space-y-1">
+            <div class="flex items-center gap-2">
+                <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Quản lý Nhân viên & Điều phối Nhân sự</h2>
+                <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider">Live Ops</span>
+            </div>
+            <p class="text-sm text-slate-500 max-w-3xl">
+                Theo dõi ca trực, phân công công tác, giám sát hiệu suất và quản lý phân quyền đội ngũ vận hành toàn mạng lưới VeloBus.
+            </p>
+        </div>
+        <!-- Global CTA Buttons -->
+        <div class="flex items-center flex-wrap gap-2">
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 font-semibold text-sm hover:bg-slate-100 border border-slate-200 transition-colors shadow-sm" type="button">
+                <span class="material-symbols-outlined text-slate-500 text-lg">calendar_month</span>
+                <span>Lịch phân ca tuần</span>
+            </button>
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 font-semibold text-sm hover:bg-slate-100 border border-slate-200 transition-colors shadow-sm" type="button">
+                <span class="material-symbols-outlined text-slate-500 text-lg">file_download</span>
+                <span>Xuất danh sách Excel</span>
+            </button>
+            <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" type="button">
+                <span class="material-symbols-outlined text-lg">person_add</span>
+                <span>Thêm nhân viên mới</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Operational Shift Ticker / Timeline Filter -->
+    <div class="bg-white rounded-2xl p-3 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-2 text-slate-500 text-xs font-medium px-2">
+            <span class="material-symbols-outlined text-blue-600 text-xl">schedule</span>
+            <span class="text-slate-800 font-semibold">Ca làm việc hiện tại:</span>
+            <span class="text-slate-400">Hôm nay, 24/10/2024</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 w-full md:w-auto">
+            <button class="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-semibold shadow-sm" type="button">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span>Ca sáng (06:00 - 14:30)</span>
+            </button>
+            <button class="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 text-xs font-semibold transition-colors" type="button">
+                <span>Ca chiều (14:30 - 22:30)</span>
+            </button>
+            <button class="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 text-xs font-semibold transition-colors" type="button">
+                <span>Ca đêm (22:30 - 06:00)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 4 Summary KPIs Metrics Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Tổng số nhân sự</span>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span class="text-3xl text-slate-800 font-extrabold">68</span>
+                        <span class="text-xs text-slate-500 font-medium">thành viên</span>
+                    </div>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                    <span class="material-symbols-outlined text-2xl">groups</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-1.5 text-emerald-600 text-xs font-semibold border-t border-slate-100">
+                <span class="material-symbols-outlined text-base">trending_up</span>
+                <span>+4 nhân sự mới</span>
+                <span class="text-slate-400 font-normal">trong tháng này</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Đang trực tuyến / Vào ca</span>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span class="text-3xl text-slate-800 font-extrabold">32 <span class="text-slate-400 font-normal text-xl">/ 36</span></span>
+                    </div>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                    <span class="material-symbols-outlined text-2xl">check_circle</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-2 text-xs border-t border-slate-100">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="text-emerald-600 font-semibold">Tỷ lệ hiện diện: 92.8%</span>
+                <span class="text-slate-400 font-normal">(Trực ban đầy đủ)</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Trên hành trình (Tài/Phụ)</span>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span class="text-3xl text-blue-600 font-extrabold">18</span>
+                        <span class="text-xs text-slate-500 font-medium">tài xế trên tuyến</span>
+                    </div>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600">
+                    <span class="material-symbols-outlined text-2xl">directions_bus</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-1.5 text-sky-600 text-xs border-t border-slate-100">
+                <span class="material-symbols-outlined text-base">alt_route</span>
+                <span class="font-semibold">12 tuyến liên tỉnh</span>
+                <span class="text-slate-400 font-normal">đang di chuyển</span>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Nghỉ phép & Nghỉ bù</span>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span class="text-3xl text-slate-800 font-extrabold">04</span>
+                        <span class="text-xs text-slate-500 font-medium">nhân sự hôm nay</span>
+                    </div>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500">
+                    <span class="material-symbols-outlined text-2xl">beach_access</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-2 flex items-center gap-1.5 text-slate-500 text-xs border-t border-slate-100">
+                <span class="text-slate-700 font-medium">2 phép năm</span>
+                <span>•</span>
+                <span class="text-slate-700 font-medium">2 nghỉ luân phiên dài</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm space-y-3">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+            <!-- Search Input -->
+            <div class="md:col-span-4 relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3.5 text-slate-400 pointer-events-none text-xl">search</span>
+                <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 border border-slate-200 transition-all" placeholder="Tìm theo tên nhân viên, mã NV, số điện thoại, CCCD..." type="text"/>
+            </div>
+            <!-- Role Filter -->
+            <div class="md:col-span-3">
+                <div class="relative">
+                    <select class="w-full appearance-none px-3.5 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl border border-slate-200 focus:outline-none focus:bg-white transition-all pr-8">
+                        <option value="">Tất cả vai trò & Chức vụ</option>
+                        <option value="driver">Tài xế chính (Driver Lead)</option>
+                        <option value="assistant">Phụ xe / Tiếp viên</option>
+                        <option value="dispatcher">Điều độ bến xe</option>
+                        <option value="pos">Thu ngân / Bán vé POS</option>
+                        <option value="mechanic">Kỹ thuật Depot / Bảo dưỡng</option>
+                        <option value="qa">Giám sát chất lượng & An toàn</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                </div>
+            </div>
+            <!-- Hub / Station Filter -->
+            <div class="md:col-span-3">
+                <div class="relative">
+                    <select class="w-full appearance-none px-3.5 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl border border-slate-200 focus:outline-none focus:bg-white transition-all pr-8">
+                        <option value="">Tất cả bến xe / Chi nhánh</option>
+                        <option value="bxd-hcm">BX Miền Đông mới (TP.HCM)</option>
+                        <option value="bx-giap-bat">BX Giáp Bát (Hà Nội)</option>
+                        <option value="bx-danang">BX Trung tâm Đà Nẵng</option>
+                        <option value="bx-cantho">Bến xe Cần Thơ</option>
+                        <option value="depot-ansuong">Trạm Depot Kỹ thuật An Sương</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                </div>
+            </div>
+            <!-- Work Status Filter -->
+            <div class="md:col-span-2">
+                <div class="relative">
+                    <select class="w-full appearance-none px-3.5 py-2.5 bg-slate-50 text-slate-800 text-sm rounded-xl border border-slate-200 focus:outline-none focus:bg-white transition-all pr-8">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="active">Đang trực tiếp</option>
+                        <option value="on-route">Đang trên tuyến</option>
+                        <option value="standby">Sẵn sàng tăng cường</option>
+                        <option value="off">Nghỉ ca</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Filter Quick Tags & Reset -->
+        <div class="flex items-center justify-between pt-2">
+            <div class="flex items-center flex-wrap gap-2 text-xs">
+                <span class="text-slate-400">Bộ lọc đang áp dụng:</span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">
+                    Chi nhánh: Toàn quốc
+                    <button class="hover:text-blue-600"><span class="material-symbols-outlined text-xs">close</span></button>
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">
+                    Ca trực: Ca sáng
+                    <button class="hover:text-blue-600"><span class="material-symbols-outlined text-xs">close</span></button>
+                </span>
+                <button class="text-blue-600 hover:underline font-semibold ml-1">Đặt lại mặc định</button>
+            </div>
+            <span class="text-xs text-slate-400 hidden sm:inline">Hiển thị <span class="font-bold text-slate-800">8</span> trên 68 nhân sự</span>
+        </div>
+    </div>
+
+    <!-- Staff Management Data Table -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-[11px] font-bold uppercase tracking-wider">
+                        <th class="py-3.5 px-4 w-10">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </th>
+                        <th class="py-3.5 px-4">Nhân viên & Mã NV</th>
+                        <th class="py-3.5 px-4">Vai trò & Chức danh</th>
+                        <th class="py-3.5 px-4">Đơn vị / Tuyến xe</th>
+                        <th class="py-3.5 px-4">Ca trực & Chấm công</th>
+                        <th class="py-3.5 px-4">Giấy phép & Chứng chỉ</th>
+                        <th class="py-3.5 px-4">Trạng thái</th>
+                        <th class="py-3.5 px-4 text-right">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
+                    <!-- Row 1: Lead Driver (On Route) -->
+                    <tr class="hover:bg-slate-50/80 transition-colors group">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Trần Minh Quân" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqz4ZPujoLLZvVeQ_5jYr9JEh_TMdGcDCocSrvLE9XsCKA0hg9_P2RCmdVu-gEpcdrfcBORofzgptC0QAM-V6VhTLNKH0hqtpsntUzpEtSe-zmI9B6oKI5PMtZuLLs0cCbE4TprtfZHAHYsOazT2PaV2-iC_eRYx46Mhgw46agXTYo_HE7W69NR2xY7M7x8xC-J3WlOxQ0VKglsHTjJuQjaEgkGcI02qJpvMlkqG-cdarsueXpC0Q2"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Trần Minh Quân</p>
+                                    <p class="text-xs text-blue-600 font-bold font-mono">NV-DRV-089</p>
+                                    <p class="text-xs text-slate-400">0918.423.882</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">airline_seat_recline_extra</span>
+                                Tài xế chính
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">BX Miền Đông Mới</p>
+                            <p class="text-xs text-sky-600 font-medium">Sài Gòn ⇄ Đà Lạt (Xe 51B-294.18)</p>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Ca sáng (06:00 - 14:30)</p>
+                            <div class="flex items-center gap-1 text-xs text-emerald-600 font-medium">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                <span>FaceID lúc 05:42</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-xs">Hạng FC • Hạn 2028</span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+                                Đang trên tuyến
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem hồ sơ">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Đổi ca / Điều chuyển">
+                                    <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tùy chọn khác">
+                                    <span class="material-symbols-outlined text-lg">more_vert</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2: Station Dispatcher -->
+                    <tr class="hover:bg-slate-50/80 transition-colors group">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Nguyễn Thị Hồng Hạnh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhyc7GbVa7oFhwMyXBvMH5WKmhb3__ZAsIcrN2gpuypd7VfVWj5aeDeqtSauvUdAl2UNK9pTTk5Cl-uyasNtqZYBfTvrxiR9WA0Dq-uGVoI38MJ6QwdQ5Ie0t4JN17CeFQS1g5uDhMRm8p6DtR6gayI556e3rLQdSYU2ba31VzZMdvdKmAPbqu3QUH4bGyRs-_Vgf0zjTHcE3z2wH0d2ByeBjh3LlY_WKQ8Q6zs-1-DTx2m-dYTHNa"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Nguyễn Thị Hồng Hạnh</p>
+                                    <p class="text-xs text-blue-600 font-bold font-mono">NV-DISP-014</p>
+                                    <p class="text-xs text-slate-400">0903.112.981</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-blue-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">tune</span>
+                                Điều độ bến
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">BX Giáp Bát Hà Nội</p>
+                            <p class="text-xs text-slate-400">Khu vực Luồng điều phối số 2</p>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Ca sáng (06:00 - 14:30)</p>
+                            <div class="flex items-center gap-1 text-xs text-emerald-600 font-medium">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                <span>FaceID lúc 05:50</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-xs">CC Điều độ QG Level 3</span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Đang làm việc
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem hồ sơ">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Đổi ca / Điều chuyển">
+                                    <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tùy chọn khác">
+                                    <span class="material-symbols-outlined text-lg">more_vert</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3: Ticket POS Operator -->
+                    <tr class="hover:bg-slate-50/80 transition-colors group">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Võ Thùy Trâm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChr-N8NLLpQK2Ly4vQDvrhC7sTOfDzJGrrw89PhMYVE427awSbncz34BsY_TtqdSdbWqJXNPsaMItTV6eTpSaHiOWBgagtEFq_bg67_EChoo8iOnLmgS8hJiWDx-kVLUpoO4VERnNmEPd6W_7FitSQ9vOWXUk1toj2TWg2-a4QWHwzrL6flbgSbxU5b8fPgCi9Ap903jetqU0w8frl4Wzwe8XM1TS3CXPwZzGChSGzEoaO4beLbkZP"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Võ Thùy Trâm</p>
+                                    <p class="text-xs text-blue-600 font-bold font-mono">NV-POS-102</p>
+                                    <p class="text-xs text-slate-400">0987.554.210</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">point_of_sale</span>
+                                Bán vé POS
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">BX Miền Đông Mới</p>
+                            <p class="text-xs text-slate-400">Quầy vé điện tử 03 - Tầng 1</p>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Ca sáng (06:00 - 14:30)</p>
+                            <div class="flex items-center gap-1 text-xs text-emerald-600 font-medium">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                <span>FaceID lúc 05:48</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-xs">Thẻ nghiệp vụ POS Standard</span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Đang làm việc
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem hồ sơ">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Đổi ca / Điều chuyển">
+                                    <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tùy chọn khác">
+                                    <span class="material-symbols-outlined text-lg">more_vert</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 4: Depot Mechanic / Tech -->
+                    <tr class="hover:bg-slate-50/80 transition-colors group">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Đặng Quốc Tuấn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv2HfXtQl55IRpBzzW2_DM-ZWPCdL3suZlT7lfGWToZOjej4veiPfCwEGzdqprhL_4WA6YZUVugUP-msWXiQEGZZYuRYGy3Izk4HWcia3tlg7VOmpJFDZ0-zuU6pgeT209GHAbOQRnqIENaOwEVJaudY7vMEP-t8-1WHLgkGHQZca1INuozq-6XyTnc8DhgKjW0mHrHePhM8HUFVvkljLSLFLpbB4YaOrwGWcnkPa-gc-bSIx-iaEd"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Đặng Quốc Tuấn</p>
+                                    <p class="text-xs text-blue-600 font-bold font-mono">NV-MEC-033</p>
+                                    <p class="text-xs text-slate-400">0934.778.651</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">build</span>
+                                Kỹ thuật Depot
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Depot Kỹ thuật An Sương</p>
+                            <p class="text-xs text-slate-400">Xưởng kiểm định phanh & gầm</p>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Ca sáng (06:00 - 14:30)</p>
+                            <div class="flex items-center gap-1 text-xs text-emerald-600 font-medium">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                <span>FaceID lúc 05:35</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-xs">Kỹ sư Cơ điện tử Ôtô</span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Đang làm việc
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem hồ sơ">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Đổi ca / Điều chuyển">
+                                    <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tùy chọn khác">
+                                    <span class="material-symbols-outlined text-lg">more_vert</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 5: Bus Attendant (On Route) -->
+                    <tr class="hover:bg-slate-50/80 transition-colors group">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Lê Hoàng Nam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0k3EAxRAvhmD5QRuisQbLFg4gSYsWx4ft8ERaGqV-3zoQ34RNFwSRH28CQwtxEK9BaJiRf0_Qur77leLWx5nb7JhQBCb0c6LdVIIs2OXvjOtpGieljqYzwnndAky0SHQziAzuPztNj0C4J1VVFZMUT_WV4fbuISnC25rF7m8t9MCQ7wzCgZPIvNhCHfHBurts3rymIbzYmQ-D2y-HJ8L31TOylmLhh2qKAOPzjX_kLegLlmfz8uMa"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Lê Hoàng Nam</p>
+                                    <p class="text-xs text-blue-600 font-bold font-mono">NV-AST-054</p>
+                                    <p class="text-xs text-slate-400">0971.889.332</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">support_agent</span>
+                                Phụ xe / Tiếp viên
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">BX Giáp Bát (Hà Nội)</p>
+                            <p class="text-xs text-sky-600 font-medium">Hà Nội ⇄ Sa Pa (Xe 29B-601.22)</p>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Ca sáng (06:00 - 14:30)</p>
+                            <div class="flex items-center gap-1 text-xs text-emerald-600 font-medium">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                <span>FaceID lúc 05:40</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-xs">CC Sơ cấp cứu & PCCC</span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+                                Đang trên tuyến
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem hồ sơ">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Đổi ca / Điều chuyển">
+                                    <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tùy chọn khác">
+                                    <span class="material-symbols-outlined text-lg">more_vert</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 6: Lead Driver (Off Shift / Rest) -->
+                    <tr class="hover:bg-slate-50/80 transition-colors group">
+                        <td class="py-3.5 px-4">
+                            <input class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500/20" type="checkbox"/>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-3">
+                                <img class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt="Nguyễn Văn Phúc" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV5qzU5C9Fq6ftGN_fjJ6EOKBykTPGpl3YLz5QujZGBx2QQwbGL5xd9j9a77tBG9Kv11nAbZnsUBt2ZrvoMHtkT-LyzuPtlHpWD5O15i4Hvz9BALriYKJCOs6wgj-p5bKjaZaEpH8mDbwDgRhXsjHmMIYQJ8tXQ-R2TXSwzM9z5ShOc08kZbxYg_HVrzKi2-W6RuUXE9a0S26LX5ee68eka5sJ_0eQvKV9bVi-jjycNGNYNo54C-Iu"/>
+                                <div class="min-w-0">
+                                    <p class="font-semibold text-slate-900 truncate">Nguyễn Văn Phúc</p>
+                                    <p class="text-xs text-blue-600 font-bold font-mono">NV-DRV-042</p>
+                                    <p class="text-xs text-slate-400">0909.761.423</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
+                                <span class="material-symbols-outlined text-sm">airline_seat_recline_extra</span>
+                                Tài xế chính
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">BX Trung tâm Đà Nẵng</p>
+                            <p class="text-xs text-slate-400">Đà Nẵng ⇄ Quy Nhơn</p>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <p class="font-medium text-slate-800">Ca chiều (14:30 - 22:30)</p>
+                            <div class="flex items-center gap-1 text-xs text-slate-400">
+                                <span class="material-symbols-outlined text-xs">pending</span>
+                                <span>Chưa đến giờ check-in</span>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-xs">Hạng E • Hạn 2027</span>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                                Nghỉ ca (Chờ ca 2)
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Xem hồ sơ">
+                                    <span class="material-symbols-outlined text-lg">visibility</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Đổi ca / Điều chuyển">
+                                    <span class="material-symbols-outlined text-lg">swap_horiz</span>
+                                </button>
+                                <button class="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" title="Tùy chọn khác">
+                                    <span class="material-symbols-outlined text-lg">more_vert</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table Pagination Bar -->
+        <div class="p-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2 text-slate-500">
+                <span>Hiển thị</span>
+                <select class="bg-slate-50 text-slate-800 font-bold rounded-lg border border-slate-200 px-2 py-1 focus:outline-none">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>50</option>
+                </select>
+                <span>trên tổng số 68 nhân viên</span>
+            </div>
+            <div class="flex items-center gap-1">
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors disabled:opacity-40">
+                    <span class="material-symbols-outlined text-sm">first_page</span>
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors disabled:opacity-40">
+                    <span class="material-symbols-outlined text-sm">chevron_left</span>
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-600 text-white font-bold">1</button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50">2</button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50">3</button>
+                <span class="px-1 text-slate-400">...</span>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50">7</button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors">
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50 transition-colors">
+                    <span class="material-symbols-outlined text-sm">last_page</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lower Section: 2-Column Auxiliary Operational Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left Column: Live Route Tracking & Driver Telemetry -->
+        <div class="lg:col-span-7 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-blue-600 text-2xl">satellite_alt</span>
+                    <div>
+                        <h3 class="text-base font-bold text-slate-800">Giám sát Đội ngũ Tài xế & Phương tiện trên tuyến</h3>
+                        <p class="text-xs text-slate-400">Dữ liệu telemetry định vị thời gian thực từ hộp đen GPS</p>
+                    </div>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-semibold">Live GPS Active</span>
+            </div>
+
+            <!-- 3 Live Driver Cards -->
+            <div class="space-y-3">
+                <!-- Tracking Item 1 -->
+                <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm font-mono">
+                            TQ
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-slate-900 text-sm">Trần Minh Quân</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-bold font-mono">51B-294.18</span>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+                                <span class="material-symbols-outlined text-xs text-blue-600">pin_drop</span>
+                                Tuyến Sài Gòn ⇄ Đà Lạt • Qua Đèo Chuối (QL20)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center">
+                        <div class="flex items-center gap-1 text-emerald-600 font-mono text-base font-bold">
+                            <span>58</span>
+                            <span class="text-xs font-normal text-slate-400">km/h</span>
+                        </div>
+                        <span class="text-xs text-emerald-600 flex items-center gap-1 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Tốc độ an toàn
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tracking Item 2 -->
+                <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-sm font-mono">
+                            LN
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-slate-900 text-sm">Lê Hoàng Nam (Phụ: Đình Trọng)</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-sky-50 text-sky-700 font-bold font-mono">29B-601.22</span>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+                                <span class="material-symbols-outlined text-xs text-sky-600">pin_drop</span>
+                                Tuyến Hà Nội ⇄ Sa Pa • Km 182 Cao tốc Nội Bài - Lào Cai
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center">
+                        <div class="flex items-center gap-1 text-emerald-600 font-mono text-base font-bold">
+                            <span>82</span>
+                            <span class="text-xs font-normal text-slate-400">km/h</span>
+                        </div>
+                        <span class="text-xs text-emerald-600 flex items-center gap-1 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Đúng lộ trình
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tracking Item 3 -->
+                <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm font-mono">
+                            NP
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-slate-900 text-sm">Nguyễn Văn Phúc</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold font-mono">43B-018.99</span>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+                                <span class="material-symbols-outlined text-xs text-slate-400">pin_drop</span>
+                                Tuyến Đà Nẵng ⇄ Quy Nhơn • Đang đỗ Bến Trung tâm đón khách
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center">
+                        <div class="flex items-center gap-1 text-slate-400 font-mono text-base font-bold">
+                            <span>0</span>
+                            <span class="text-xs font-normal text-slate-400">km/h</span>
+                        </div>
+                        <span class="text-xs text-slate-500 flex items-center gap-1 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                            Đang đón khách
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick map preview anchor link -->
+            <div class="pt-2 flex items-center justify-between text-xs border-t border-slate-100">
+                <span class="text-slate-400">Cập nhật GPS mỗi 15 giây qua vệ tinh</span>
+                <a class="text-blue-600 hover:underline font-semibold flex items-center gap-1" href="#">
+                    <span>Xem bản đồ vệ tinh toàn đội xe</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Column: Shift Alerts & Personnel Compliance Warnings -->
+        <div class="lg:col-span-5 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-red-500 text-2xl">notifications_active</span>
+                    <div>
+                        <h3 class="text-base font-bold text-slate-800">Lịch trực & Cảnh báo nhân sự</h3>
+                        <p class="text-xs text-slate-400">Các đầu việc cần quản trị viên xử lý ngay</p>
+                    </div>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-600 text-[11px] font-bold">3 Cảnh báo</span>
+            </div>
+
+            <div class="space-y-3">
+                <!-- Warning Item 1: Health Examination Due -->
+                <div class="p-3.5 rounded-xl bg-slate-50 flex items-start gap-3 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-lg">medical_services</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-semibold text-slate-800">Khám sức khỏe định kỳ hết hạn</p>
+                            <span class="text-xs text-red-600 font-bold">Tuần tới</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                            2 tài xế (Lâm Văn Hùng - NV-DRV-019, Hoàng Đình Vũ - NV-DRV-024) cần khám sức khỏe lái xe kinh doanh vận tải.
+                        </p>
+                        <div class="mt-2 flex items-center gap-2">
+                            <button class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 text-xs font-semibold hover:bg-blue-100 transition-colors">
+                                Lên lịch khám bệnh viện
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warning Item 2: Max Driving Hours Exceeded Warning -->
+                <div class="p-3.5 rounded-xl bg-slate-50 flex items-start gap-3 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-lg">timelapse</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-semibold text-slate-800">Chạm ngưỡng thời gian lái xe liên tục</p>
+                            <span class="text-xs text-sky-700 font-bold">Cần đổi ca</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                            Tài xế Phan Thanh Hải đã lái liên tục 3 giờ 45 phút trên tuyến QL1A. Yêu cầu đổi tài phụ tại trạm dừng chân tiếp theo.
+                        </p>
+                        <div class="mt-2 flex items-center gap-2">
+                            <button class="px-2.5 py-1 rounded-lg bg-sky-600 text-white text-xs font-semibold hover:bg-sky-700 transition-colors">
+                                Gửi lệnh đổi tài
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warning Item 3: POS Weekend Shortage -->
+                <div class="p-3.5 rounded-xl bg-slate-50 flex items-start gap-3 border border-slate-100">
+                    <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-lg">badge</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-semibold text-slate-800">Bổ sung nhân sự bán vé cuối tuần</p>
+                            <span class="text-xs text-slate-400 font-medium">Thứ 7 & CN</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                            Quầy vé BX Miền Đông Mới dự kiến tăng 160% lưu lượng khách dịp cuối tuần. Đang thiếu 02 nhân viên quầy POS.
+                        </p>
+                        <div class="mt-2 flex items-center gap-2">
+                            <button class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 text-xs font-semibold hover:bg-blue-100 transition-colors">
+                                Điều động tăng cường
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick status indicator bar -->
+            <div class="pt-2 flex items-center justify-between text-xs border-t border-slate-100">
+                <span class="text-slate-400">Đã giải quyết 5/8 sự vụ hôm nay</span>
+                <button class="text-blue-600 hover:underline font-semibold">Xem tất cả thông báo</button>
+            </div>
+        </div>
+    </div>
+
+</div>

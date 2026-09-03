@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeloBus Admin System</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',      // Màu xanh chủ đạo cho nút active
+                            bg: '#F8FAFC',        // Màu nền chung sáng
+                            sidebar: '#F1F5F9',   // Màu nền sidebar nhạt
+                            text: '#1E293B',      // Màu chữ đậm
+                            muted: '#64748B'      // Màu chữ phụ
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        body { font-family: 'Manrope', sans-serif; }
+        
+        /* Style chuẩn theo ảnh mẫu Stitch: Nền sidebar sáng, item active có màu xanh đậm và bo góc */
+        .nav-item.active {
+            background-color: #2563EB !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(250, 250, 250, 0.25);
+        }
+        .nav-item.active .material-symbols-outlined {
+            color: #ffffff !important;
+        }
+        
+        /* Style cho item khi hover hoặc item phụ (như Quản lý vé ở ảnh mẫu) */
+        .nav-item-sub-active {
+            background-color: #DBEAFE;
+            color: #1D4ED8;
+        }
+        .nav-item-sub-active .material-symbols-outlined {
+            color: #1D4ED8;
+        }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1E293B] flex h-screen overflow-hidden">
+
+    <!-- ==================== SIDEBAR CHUNG (Giao diện sáng theo Stitch) ==================== -->
+    <aside class="w-64 bg-[#F8FAFC] border-r border-slate-200 flex flex-col justify-between shrink-0 select-none">
+        <div>
+            <!-- Logo Brand (Khớp với ảnh mẫu) -->
+            <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-200/60">
+                <div class="bg-blue-600 p-2 rounded-xl text-white flex items-center justify-center shadow-md shadow-blue-500/20">
+                    <span class="material-symbols-outlined text-xl">directions_bus</span>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-blue-600 tracking-tight text-base leading-none">VeloBus</h1>
+                    <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-0.5 block">TRANSIT SYSTEM</span>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="p-4 space-y-1.5" id="sidebar-nav">
+                <a href="#" data-page="pages/quanlynguoidung.html" data-title="Quản lý người dùng" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">group</span>
+                    Quản lý người dùng
+                </a>
+                <a href="#" data-page="pages/quanlynhanvien.html" data-title="Quản lý nhân viên" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">badge</span>
+                    Quản lý nhân viên
+                </a>
+                <a href="#" data-page="pages/buses.html" data-title="Quản lý xe" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">directions_bus</span>
+                    Quản lý xe
+                </a>
+                <a href="#" data-page="pages/routes.html" data-title="Quản lý tuyến đường" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">alt_route</span>
+                    Quản lý tuyến đường
+                </a>
+                <a href="#" data-page="pages/trips.html" data-title="Quản lý chuyến xe" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">departure_board</span>
+                    Quản lý chuyến xe
+                </a>
+                <a href="#" data-page="pages/tickets.html" data-title="Quản lý vé" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">confirmation_number</span>
+                    Quản lý vé
+                </a>
+                <a href="#" data-page="pages/doanhthu.html" data-title="Thống kê doanh thu" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">bar_chart</span>
+                    Thống kê doanh thu
+                </a>
+                <a href="#" data-page="pages/thongkeve.html" data-title="Thống kê số lượng vé" class="nav-item active flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">dashboard</span>
+                    Thống kê số lượng vé
+                </a>
+                <a href="#" data-page="pages/settings.html" data-title="Cài đặt hệ thống" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-200/60 transition-all">
+                    <span class="material-symbols-outlined text-slate-500 text-xl">settings</span>
+                    Cài đặt
+                </a>
+            </nav>
+        </div>
+
+        <!-- Trạng thái máy chủ dưới Sidebar -->
+        <div class="p-4 m-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+            <div class="flex items-center gap-2 text-xs font-bold text-emerald-600">
+                <span class="material-symbols-outlined text-sm">cloud_done</span>
+                Hệ thống máy chủ
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Hoạt động ổn định (v3.4)</p>
+        </div>
+    </aside>
+
+    <!-- ==================== KHU VỰC CHÍNH ==================== -->
+    <div class="flex-1 flex flex-col h-screen overflow-hidden bg-white">
+
+        <!-- HEADER CHUNG -->
+        <header class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between shrink-0">
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-sm text-slate-500">
+                <span class="material-symbols-outlined text-slate-400 text-base">home</span>
+                <span>/</span>
+                <span>Trang quản trị</span>
+                <span>/</span>
+                <span id="breadcrumb-active" class="font-bold text-slate-800">Dashboard</span>
+            </div>
+
+            <!-- Right Header Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Thông báo -->
+                <button class="relative p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+
+                <div class="h-6 w-px bg-slate-200"></div>
+
+                <!-- Profile Info -->
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-700 font-bold flex items-center justify-center text-sm border border-blue-200">
+                        AD
+                    </div>
+                    <div class="text-xs">
+                        <div class="font-bold text-slate-800">Quản trị viên</div>
+                        <div class="text-slate-500">Admin Central</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTAINER NỘI DUNG ĐỘNG (Load file HTML con của từng thành viên trong team) -->
+        <main id="main-content" class="flex-1 overflow-y-auto p-6 bg-[#F8FAFC]">
+            <!-- Nội dung file con sẽ được fetch vào đây -->
+        </main>
+    </div>
+
+    <!-- ==================== SCRIPT ĐIỀU HƯỚNG DỮ LIỆU ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('#sidebar-nav .nav-item');
+            const mainContent = document.getElementById('main-content');
+            const breadcrumbActive = document.getElementById('breadcrumb-active');
+
+            async function loadPage(pageUrl, title) {
+                try {
+                    mainContent.innerHTML = `
+                        <div class="flex flex-col items-center justify-center h-64 text-slate-400 gap-2">
+                            <div class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                            <span class="text-sm font-medium">Đang đồng bộ phân vùng dữ liệu...</span>
+                        </div>`;
+                    
+                    const response = await fetch(pageUrl);
+                    if (!response.ok) throw new Error('Không thể tìm thấy file HTML');
+                    const html = await response.text();
+                    
+                    mainContent.innerHTML = html;
+                    if (title) breadcrumbActive.textContent = title;
+                } catch (error) {
+                    mainContent.innerHTML = `
+                        <div class="p-6 bg-blue-50 border border-blue-200 rounded-2xl text-blue-900 max-w-xl mx-auto mt-10 shadow-sm">
+                            <h3 class="font-bold text-base mb-1 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-blue-600">info</span> 
+                                Đã sẵn sàng kết nối Module con
+                            </h3>
+                            <p class="text-sm text-blue-700 leading-relaxed">
+                                Giao diện khung tổng đã khớp hoàn toàn với thiết kế màu sáng (Light Theme) của hệ thống. 
+                                Thành viên phụ trách phân vùng này hãy tạo file tại đường dẫn: <code class="bg-white px-2 py-0.5 rounded border border-blue-200 font-mono text-xs">${pageUrl}</code> để hệ thống tự động nhận diện.
+                            </p>
+                        </div>`;
+                }
+            }
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Reset active states
+                    navItems.forEach(nav => {
+                        nav.classList.remove('active');
+                        nav.classList.add('text-slate-700', 'hover:bg-slate-200/60');
+                    });
+
+                    // Set current active
+                    item.classList.add('active');
+                    item.classList.remove('text-slate-700', 'hover:bg-slate-200/60');
+
+                    const pageUrl = item.getAttribute('data-page');
+                    const title = item.getAttribute('data-title');
+
+                    loadPage(pageUrl, title);
+                });
+            });
+
+            // Tải trang mặc định ban đầu
+            const defaultItem = document.querySelector('#sidebar-nav .nav-item.active');
+            if (defaultItem) {
+                loadPage(defaultItem.getAttribute('data-page'), defaultItem.getAttribute('data-title'));
+            }
+        });
+    </script>
+</body>
+</html>
