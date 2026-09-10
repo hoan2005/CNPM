@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Chi tiết chuyến xe - TransLink</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "error": "#DC2626",
+                        "success": "#16A34A",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-tint": "#0053db",
+                        "on-primary-container": "#eeefff",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#0074a6",
+                        "secondary-container": "#d0e1fb",
+                        "outline-variant": "#c3c6d7",
+                        "primary": "#004ac6",
+                        "on-tertiary-container": "#e4f2ff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#005a82",
+                        "primary-container": "#2563eb",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#54647a",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-background": "#191c1e",
+                        "outline": "#737686",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "text-muted": "#94A3B8",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#001e2f",
+                        "secondary": "#505f76",
+                        "warning": "#F59E0B",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "border-default": "#E2E8F0",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "text-primary": "#0F172A",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "stack-lg": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-h1-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-h3": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-h2": ["Inter"],
+                        "headline-h1": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .seat {
+            transition: all 0.2s ease-in-out;
+            user-select: none;
+        }
+        .seat:hover:not(.booked) {
+            transform: scale(1.08);
+            cursor: pointer;
+        }
+        .seat.available {
+            border-color: #2563EB;
+            color: #2563EB;
+            background-color: #ffffff;
+        }
+        .seat.selected {
+            background-color: #2563EB !important;
+            color: #ffffff !important;
+            border-color: #2563EB !important;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
+        }
+        .seat.booked {
+            background-color: #E2E8F0;
+            color: #94A3B8;
+            border-color: #E2E8F0;
+            cursor: not-allowed;
+        }
+        .seat.vip {
+            border-color: #0EA5E9;
+            color: #0EA5E9;
+            background-color: #f0f9ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-text-primary font-body-md min-h-screen flex flex-col">
+
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface-container-lowest dark:bg-inverse-surface shadow-sm z-50">
+    <div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-16">
+        <div class="font-headline-h3 text-headline-h3 font-bold text-primary dark:text-primary-fixed cursor-pointer" onclick="window.location.href='index.html'">
+            TransLink
+        </div>
+        <nav class="hidden md:flex space-x-8">
+            <a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary font-body-lg text-body-lg hover:text-primary-container transition-colors flex flex-col justify-center items-center h-16" href="index.html">Home</a>
+            <a class="text-primary dark:text-primary-fixed border-b-2 border-primary font-bold pb-1 font-body-lg text-body-lg hover:text-primary-container transition-colors flex flex-col justify-center items-center h-16" href="index.html">Search Trips</a>
+            <a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary font-body-lg text-body-lg hover:text-primary-container transition-colors flex flex-col justify-center items-center h-16" href="#">My Tickets</a>
+            <a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary font-body-lg text-body-lg hover:text-primary-container transition-colors flex flex-col justify-center items-center h-16" href="#">Account</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <button class="hidden md:block font-label-sm text-label-sm text-secondary hover:text-primary transition-colors">Login</button>
+            <button class="bg-primary-container text-on-primary px-4 py-2 rounded font-label-sm text-label-sm hover:bg-primary transition-colors">Register</button>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-margin-mobile md:px-gutter py-stack-lg">
+
+    <!-- Breadcrumb -->
+    <nav class="mb-stack-lg flex items-center space-x-2 text-secondary font-caption text-caption">
+        <a class="hover:text-primary hover:underline transition-colors" href="index.html">Trang chủ</a>
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        <a class="hover:text-primary hover:underline transition-colors" href="index.html">Tìm chuyến</a>
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        <span class="text-text-primary font-medium">Chi tiết chuyến xe</span>
+    </nav>
+
+    <!-- Ngoại lệ E1: Chuyến xe đã bị hủy hoặc hết chỗ -->
+    <div id="soldout-warning" class="hidden mb-6 bg-error-container text-on-error-container p-4 rounded-xl border border-error flex items-center justify-between shadow-sm">
+        <div class="flex items-center space-x-3">
+            <span class="material-symbols-outlined text-error">warning</span>
+            <span class="font-body-md font-semibold">Chuyến xe này hiện đã hết chỗ hoặc tạm ngưng. Quý khách vui lòng chọn chuyến xe khác!</span>
+        </div>
+        <button onclick="window.location.href='index.html'" class="bg-error text-white text-xs px-3 py-1.5 rounded-lg hover:opacity-90 font-medium">
+            Tìm chuyến khác
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <!-- Left Column: Trip Details -->
+        <div class="lg:col-span-8 flex flex-col gap-stack-lg">
+
+            <!-- Main Info Card -->
+            <section class="bg-surface-container-lowest rounded-xl shadow-sm p-6 border border-border-default">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 id="trip-route-title" class="font-headline-h2 text-headline-h2 text-text-primary mb-2">Đà Nẵng - Huế</h1>
+                        <p class="font-body-md text-body-md text-secondary flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">calendar_today</span>
+                            <span id="trip-date-display">2026-09-10</span>
+                        </p>
+                    </div>
+                    <div class="text-right">
+                        <span id="trip-bus-type" class="inline-block bg-secondary-fixed text-primary px-3 py-1 rounded-full font-label-sm text-label-sm mb-2 font-medium">Giường nằm 34 phòng</span>
+                        <div id="trip-operator-name" class="font-headline-h3 text-headline-h3 text-primary-container">Phương Trang</div>
+                    </div>
+                </div>
+
+                <div class="h-px bg-border-default w-full mb-6"></div>
+
+                <!-- Schedule Timeline -->
+                <div class="relative pl-6 mb-8 border-l-2 border-border-default ml-3 space-y-8">
+                    <!-- Pick-up -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] bg-surface-container-lowest p-1 rounded-full">
+                            <div class="w-4 h-4 rounded-full bg-primary-container ring-4 ring-secondary-fixed"></div>
+                        </div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                            <div>
+                                <div id="trip-dep-time" class="font-headline-h3 text-headline-h3 text-text-primary">07:00</div>
+                                <div class="font-label-sm text-label-sm text-secondary">Điểm đón</div>
+                            </div>
+                            <div class="md:text-right">
+                                <div id="trip-dep-point" class="font-body-lg text-body-lg font-medium text-text-primary">Bến xe Trung tâm Đà Nẵng</div>
+                                <div id="trip-dep-address" class="font-body-md text-body-md text-secondary">185 Tôn Đức Thắng, Liên Chiểu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duration -->
+                    <div class="relative -ml-6 flex items-center gap-4 py-2">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">schedule</span>
+                        <span id="trip-duration-display" class="font-body-md text-body-md text-secondary">Thời gian di chuyển dự kiến: 2h 15m</span>
+                    </div>
+
+                    <!-- Drop-off -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] bg-surface-container-lowest p-1 rounded-full">
+                            <div class="w-4 h-4 rounded-full border-2 border-secondary bg-surface-container-lowest"></div>
+                        </div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                            <div>
+                                <div id="trip-arr-time" class="font-headline-h3 text-headline-h3 text-text-primary">09:15</div>
+                                <div class="font-label-sm text-label-sm text-secondary">Điểm trả</div>
+                            </div>
+                            <div class="md:text-right">
+                                <div id="trip-dest-point" class="font-body-lg text-body-lg font-medium text-text-primary">Bến xe Phía Nam Huế</div>
+                                <div id="trip-dest-address" class="font-body-md text-body-md text-secondary">97 An Dương Vương, TP. Huế</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facilities -->
+                <div class="bg-background rounded-lg p-4 mb-6">
+                    <h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-4 font-semibold">Tiện ích trên xe</h3>
+                    <div id="trip-amenities-list" class="flex flex-wrap gap-4">
+                        <!-- Render tiện ích -->
+                    </div>
+                </div>
+
+                <!-- Policies -->
+                <div>
+                    <h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-3 font-semibold">Chính sách nhà xe</h3>
+                    <ul id="trip-policies-list" class="list-disc pl-5 font-body-md text-body-md text-secondary space-y-2">
+                        <!-- Render chính sách -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seat Map Interactive Section -->
+            <section class="bg-surface-container-lowest rounded-xl shadow-sm p-6 border border-border-default">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="font-headline-h3 text-headline-h3 text-text-primary">Sơ đồ chọn ghế</h2>
+                        <p class="font-caption text-caption text-secondary mt-1">Nhấp vào ghế trống để chọn hoặc bỏ chọn</p>
+                    </div>
+                    <div class="flex gap-4 font-caption text-caption">
+                        <div class="flex items-center gap-1.5"><div class="w-4 h-4 border-2 border-primary-container rounded bg-white"></div> Trống</div>
+                        <div class="flex items-center gap-1.5"><div class="w-4 h-4 bg-primary-container rounded"></div> Đang chọn</div>
+                        <div class="flex items-center gap-1.5"><div class="w-4 h-4 bg-border-default rounded"></div> Đã đặt</div>
+                        <div class="flex items-center gap-1.5"><div class="w-4 h-4 border-2 border-[#0EA5E9] bg-[#f0f9ff] rounded"></div> VIP</div>
+                    </div>
+                </div>
+
+                <!-- Tabs chọn tầng nếu là xe 2 tầng -->
+                <div id="floor-tabs" class="flex space-x-3 mb-6">
+                    <button id="btn-floor-1" onclick="switchFloor(1)" class="px-4 py-2 rounded-lg font-label-sm font-medium bg-primary-container text-white transition-colors">Tầng 1 (Tầng dưới)</button>
+                    <button id="btn-floor-2" onclick="switchFloor(2)" class="px-4 py-2 rounded-lg font-label-sm font-medium bg-surface-container text-secondary hover:text-text-primary transition-colors">Tầng 2 (Tầng trên)</button>
+                </div>
+
+                <!-- 2D Seat Map Layout -->
+                <div class="bg-background rounded-xl p-6 flex flex-col items-center border border-border-default">
+                    <div class="w-full max-w-md border-2 border-border-default rounded-[40px] rounded-b-xl p-6 pb-8 relative bg-surface-container-lowest shadow-sm">
+                        <!-- Steering Wheel & Driver Cabin -->
+                        <div class="flex justify-between items-center mb-8 pb-4 border-b border-border-default">
+                            <div class="flex items-center space-x-2 text-secondary">
+                                <span class="material-symbols-outlined text-[28px]">airline_seat_recline_extra</span>
+                                <span class="text-xs font-medium uppercase">Khu vực tài xế</span>
+                            </div>
+                            <span class="material-symbols-outlined text-secondary text-[30px]">directions_car</span>
+                        </div>
+
+                        <!-- Seat Grid Canvas -->
+                        <div id="seat-grid-container" class="grid grid-cols-3 gap-y-4 gap-x-6 justify-items-center">
+                            <!-- Seats render động theo tầng -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Booking Summary Card -->
+        <div class="lg:col-span-4">
+            <div class="sticky top-[88px] flex flex-col gap-stack-lg">
+
+                <!-- Stepper Card -->
+                <div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 border border-border-default">
+                    <h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-6 font-semibold">Tiến trình đặt vé</h3>
+                    <div class="flex justify-between relative">
+                        <div class="absolute top-4 left-0 w-full h-1 bg-border-default -z-10 rounded"></div>
+                        <div class="absolute top-4 left-0 w-1/3 h-1 bg-primary-container -z-10 rounded"></div>
+
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm mb-2 shadow-sm">
+                                <span class="material-symbols-outlined text-[16px]">check</span>
+                            </div>
+                            <span class="font-caption text-caption text-text-primary font-medium text-center">Chọn chuyến</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center font-label-sm mb-2 font-bold shadow-sm">
+                                2
+                            </div>
+                            <span class="font-caption text-caption text-primary-container font-medium text-center">Chọn ghế</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-border-default text-secondary flex items-center justify-center font-label-sm mb-2 bg-background">
+                                3
+                            </div>
+                            <span class="font-caption text-caption text-secondary text-center">Thông tin</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-border-default text-secondary flex items-center justify-center font-label-sm mb-2 bg-background">
+                                4
+                            </div>
+                            <span class="font-caption text-caption text-secondary text-center">Thanh toán</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Summary Card -->
+                <div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 border border-border-default">
+                    <h2 class="font-headline-h3 text-headline-h3 text-text-primary mb-4 font-bold">Tóm tắt giá vé</h2>
+                    
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-body-md text-body-md text-secondary">Đơn giá vé cơ bản</span>
+                        <span id="summary-base-price" class="font-body-lg text-body-lg text-text-primary font-medium">0 đ</span>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-body-md text-body-md text-secondary">Ghế đã chọn (<span id="selected-seats-count">0</span>)</span>
+                        <span id="selected-seats-list" class="font-body-md text-body-md font-semibold text-primary">Chưa chọn</span>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-body-md text-body-md text-secondary">Phí dịch vụ</span>
+                        <span class="font-body-lg text-body-lg text-text-primary font-medium text-success">Miễn phí</span>
+                    </div>
+
+                    <div class="h-px bg-border-default w-full mb-6"></div>
+
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="font-label-sm text-label-sm text-text-primary font-bold">Tổng cộng tạm tính</span>
+                        <span id="summary-total-price" class="font-headline-h2 text-headline-h2 text-primary-container font-bold">0 đ</span>
+                    </div>
+
+                    <button id="btn-continue-checkout" onclick="handleContinueBooking()" class="w-full bg-primary-container text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-2 h-[44px] shadow-sm hover:shadow active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Tiếp tục đặt chỗ
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-low dark:bg-on-background border-t border-border-default">
+    <div class="max-w-container-max mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-center">
+        <div class="font-headline-h3 text-headline-h3 font-bold text-primary mb-4 md:mb-0">
+            TransLink
+        </div>
+        <div class="flex space-x-6 mb-4 md:mb-0 font-caption text-caption">
+            <a class="text-secondary-fixed-variant hover:text-primary hover:underline transition-all" href="#">Contact Us</a>
+            <a class="text-secondary-fixed-variant hover:text-primary hover:underline transition-all" href="#">Privacy Policy</a>
+            <a class="text-secondary-fixed-variant hover:text-primary hover:underline transition-all" href="#">Terms of Service</a>
+            <a class="text-secondary-fixed-variant hover:text-primary hover:underline transition-all" href="#">Help Center</a>
+        </div>
+        <div class="font-caption text-caption text-secondary">
+            © 2026 TransLink SaaS. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/api.js"></script>
+<script src="js/detail.js"></script>
+</body>
+</html>
