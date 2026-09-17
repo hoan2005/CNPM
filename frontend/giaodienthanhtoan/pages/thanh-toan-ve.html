@@ -1,0 +1,570 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>VexeExpress - Đặt Vé Xe Khách Liên Tỉnh</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary": "#006329",
+        "inverse-surface": "#213145",
+        "secondary": "#006591",
+        "tertiary-fixed": "#7ffc97",
+        "inverse-on-surface": "#eaf1ff",
+        "outline": "#737686",
+        "surface-dim": "#cbdbf5",
+        "inverse-primary": "#b4c5ff",
+        "secondary-container": "#39b8fd",
+        "on-primary": "#ffffff",
+        "on-secondary": "#ffffff",
+        "surface-container-high": "#dce9ff",
+        "surface-bright": "#f8f9ff",
+        "surface-tint": "#0053db",
+        "on-tertiary-fixed-variant": "#005320",
+        "on-secondary-fixed": "#001e2f",
+        "on-surface": "#0b1c30",
+        "on-error-container": "#93000a",
+        "error": "#ba1a1a",
+        "on-tertiary-container": "#c7ffca",
+        "primary-container": "#2563eb",
+        "surface-variant": "#d3e4fe",
+        "primary-fixed": "#dbe1ff",
+        "surface-container-low": "#eff4ff",
+        "on-surface-variant": "#434655",
+        "surface-container-highest": "#d3e4fe",
+        "surface-container": "#e5eeff",
+        "tertiary-container": "#007f36",
+        "on-tertiary-fixed": "#002109",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#00174b",
+        "outline-variant": "#c3c6d7",
+        "on-background": "#0b1c30",
+        "error-container": "#ffdad6",
+        "secondary-fixed-dim": "#89ceff",
+        "on-tertiary": "#ffffff",
+        "surface": "#f8f9ff",
+        "primary-fixed-dim": "#b4c5ff",
+        "background": "#f8f9ff",
+        "on-secondary-container": "#004666",
+        "tertiary-fixed-dim": "#62df7d",
+        "on-secondary-fixed-variant": "#004c6e",
+        "primary": "#004ac6",
+        "on-primary-container": "#eeefff",
+        "secondary-fixed": "#c9e6ff",
+        "on-primary-fixed-variant": "#003ea8",
+        "on-error": "#ffffff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "gutter": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-2xl": "3rem",
+        "gutter-sm": "1rem",
+        "margin": "2rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-sm": "0.5rem",
+        "gutter-lg": "2rem"
+      },
+      "fontFamily": {
+        "caption-xs": ["Inter"],
+        "headline-sm": ["Inter"],
+        "label-md": ["Inter"],
+        "body-md-medium": ["Inter"],
+        "headline-xl-mobile": ["Inter"],
+        "headline-md": ["Inter"],
+        "headline-lg-mobile": ["Inter"],
+        "headline-xl": ["Inter"],
+        "body-lg-medium": ["Inter"],
+        "body-md": ["Inter"],
+        "caption-sm": ["Inter"],
+        "body-md-semibold": ["Inter"],
+        "headline-lg": ["Inter"],
+        "body-lg": ["Inter"]
+      },
+      "fontSize": {
+        "caption-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+        "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "body-md-medium": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500"}],
+        "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+        "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+        "body-lg-medium": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500"}],
+        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "caption-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "body-md-semibold": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600"}],
+        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6"><div class="flex items-center gap-8"><a class="flex items-center gap-2.5 text-decoration-none group" data-path="trang-chu" href="#"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkCdzzONu4Q9TgMtkFGV3obTcV_wDC9_H5t23IFhOW-I6Al3inXSWwMJHYO8ryDNVX9gnTHQjK4suC5rMN30re0vRNEl9RR71DE0Y_mz92NAyRHgGEjlyc96YJj-Ppu-voydCP14jKse51g89YplqchJce-RPOz2ssBILXEMILny24g-G1eyJSCS8-VYwdt_bRsE74MaWpQ1OvXbEUkY0GUVXgmvlDIk6RbS4bm2NL7bGiqqGf07MOt1dUPoBVCZaMZlg" alt="VietBus Logo" class="h-9 w-auto rounded-lg object-contain"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">VietBus</span><span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Xe Khách Liên Tỉnh</span></div></a><nav class="hidden lg:flex items-center gap-1 p-1" data-active-classes="bg-surface-container-high text-primary font-body-md-semibold rounded-lg"><a class="px-3.5 py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="tim-chuyen" href="#">Tìm chuyến</a><a class="px-3.5 py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="ve-cua-toi" href="#">Vé của tôi</a><a class="px-3.5 py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="tra-cuu-ve" href="#">Tra cứu vé</a></nav></div><div class="flex items-center gap-4"><div class="hidden sm:flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full"><span class="material-symbols-outlined text-secondary text-[18px]">account_balance_wallet</span><span class="font-caption-sm text-caption-sm text-on-surface-variant">Số dư:</span><span class="font-body-md-semibold text-body-md-semibold text-on-surface">1.250.000đ</span></div><button aria-label="Thông báo" class="relative w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-3 pl-2"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden md:flex flex-col text-left"><span class="font-body-md-semibold text-body-md-semibold text-on-surface leading-tight">Nguyễn Văn An</span><span class="font-caption-xs text-caption-xs text-on-surface-variant">Khách hàng thân thiết</span></div></div></div></div></header><main class="w-full pt-16 min-h-[calc(100vh-280px)] bg-background"><div class="flex flex-col w-full">
+<!-- Progress Stepper Tracker Bar -->
+<div class="w-full bg-surface-container-lowest shadow-sm mb-8">
+<div class="max-w-7xl mx-auto px-6 py-4">
+<div class="flex items-center justify-between gap-2 overflow-x-auto">
+<!-- Step 1: Done -->
+<div class="flex items-center gap-3 min-w-max">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-caption-xs text-caption-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-xs text-caption-xs text-tertiary uppercase tracking-wider">Bước 1</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Chọn chuyến</span>
+</div>
+</div>
+<div class="h-0.5 flex-1 mx-4 bg-tertiary-container hidden sm:block"></div>
+<!-- Step 2: Done -->
+<div class="flex items-center gap-3 min-w-max">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-caption-xs text-caption-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-xs text-caption-xs text-tertiary uppercase tracking-wider">Bước 2</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Chọn ghế</span>
+</div>
+</div>
+<div class="h-0.5 flex-1 mx-4 bg-tertiary-container hidden sm:block"></div>
+<!-- Step 3: Done -->
+<div class="flex items-center gap-3 min-w-max">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-caption-xs text-caption-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-xs text-caption-xs text-tertiary uppercase tracking-wider">Bước 3</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Thông tin hành khách</span>
+</div>
+</div>
+<div class="h-0.5 flex-1 mx-4 bg-primary-container hidden sm:block"></div>
+<!-- Step 4: Active Current -->
+<div class="flex items-center gap-3 min-w-max bg-surface-container-high px-3.5 py-1.5 rounded-xl">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-body-md-semibold text-body-md-semibold shadow-sm animate-pulse">
+            4
+          </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="bg-primary text-on-primary text-[10px] font-caption-xs px-1.5 py-0.5 rounded-full uppercase">Đang thực hiện</span>
+</div>
+<span class="font-body-md-semibold text-body-md-semibold text-primary">Thanh toán vé</span>
+</div>
+</div>
+<div class="h-0.5 flex-1 mx-4 bg-surface-container-highest hidden sm:block"></div>
+<!-- Step 5: Inactive -->
+<div class="flex items-center gap-3 min-w-max opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-body-md-semibold text-body-md-semibold">
+            5
+          </div>
+<div class="flex flex-col">
+<span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Bước 5</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Hoàn tất</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Booking 2-Column Content Grid -->
+<div class="max-w-7xl mx-auto px-6 pb-16 w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Payment Methods & Actions (Col 7/12) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Countdown Hold Timer Alert Banner -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+<div>
+<p class="font-body-md-semibold text-body-md-semibold text-on-surface mb-0">Thời gian giữ vé còn lại</p>
+<p class="font-caption-sm text-caption-sm text-on-surface-variant mb-0">Vé của bạn sẽ tự động giải phóng sau khi hết thời gian</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-3.5 py-1.5 rounded-lg self-start sm:self-auto">
+<span class="material-symbols-outlined text-error text-[20px]">alarm</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold tracking-wider tabular-nums" id="countdown-timer">07:37</span>
+</div>
+</div>
+<!-- Payment Method Selection Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">payments</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-0">Chọn phương thức thanh toán</h2>
+</div>
+<span class="bg-surface-container-low text-on-surface-variant font-caption-xs text-caption-xs px-2.5 py-1 rounded-full uppercase tracking-wider">Mã hóa SSL 256-bit</span>
+</div>
+<div class="flex flex-col gap-3" id="payment-options-container">
+<!-- Option 1: VietQR (Default Selected) -->
+<label class="cursor-pointer group block">
+<input checked="" class="peer hidden" name="payment_method" type="radio" value="vietqr">
+<div class="p-4 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-high transition-all flex flex-col gap-3 shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center peer-checked:group-[]:bg-primary transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary peer-checked:group-[]:bg-on-primary"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">qr_code_scanner</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Chuyển khoản QR Code tự động</span>
+</div>
+</div>
+<span class="bg-tertiary-container text-on-tertiary text-[11px] font-caption-xs px-2.5 py-0.5 rounded-full">Khuyên dùng • Tức thì</span>
+</div>
+<!-- VietQR Nested Interactive Details -->
+<div class="peer-checked:group-[]:flex flex-col gap-4 mt-2 pt-3 bg-surface-container-lowest p-4 rounded-lg">
+<div class="flex flex-col sm:flex-row items-center gap-6">
+<!-- QR Graphic Code Box -->
+<div class="relative bg-surface-container-lowest p-3 rounded-lg shadow-sm flex flex-col items-center">
+<div class="w-36 h-36 bg-surface-container-low flex items-center justify-center rounded relative overflow-hidden">
+<!-- Dynamic SVG QR Matrix Pattern -->
+<svg class="w-32 h-32 text-on-surface" fill="currentColor" viewBox="0 0 100 100">
+<rect fill="currentColor" height="28" width="28" x="0" y="0"></rect>
+<rect fill="#ffffff" height="20" width="20" x="4" y="4"></rect>
+<rect fill="currentColor" height="12" width="12" x="8" y="8"></rect>
+<rect fill="currentColor" height="28" width="28" x="72" y="0"></rect>
+<rect fill="#ffffff" height="20" width="20" x="76" y="4"></rect>
+<rect fill="currentColor" height="12" width="12" x="80" y="8"></rect>
+<rect fill="currentColor" height="28" width="28" x="0" y="72"></rect>
+<rect fill="#ffffff" height="20" width="20" x="4" y="76"></rect>
+<rect fill="currentColor" height="12" width="12" x="8" y="80"></rect>
+<rect fill="currentColor" height="16" width="8" x="36" y="8"></rect>
+<rect fill="currentColor" height="8" width="12" x="52" y="12"></rect>
+<rect fill="currentColor" height="16" width="16" x="36" y="36"></rect>
+<rect fill="currentColor" height="8" width="24" x="60" y="36"></rect>
+<rect fill="currentColor" height="24" width="8" x="36" y="60"></rect>
+<rect fill="currentColor" height="16" width="20" x="52" y="68"></rect>
+<rect fill="currentColor" height="12" width="16" x="80" y="60"></rect>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px] bg-surface-container-lowest p-1 rounded-full shadow-sm">verified_user</span>
+</div>
+</div>
+<div class="flex items-center gap-1 mt-2 text-tertiary">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+<span class="font-caption-xs text-caption-xs">Tự động khớp lệnh 24/7</span>
+</div>
+</div>
+<!-- Transfer Details Instruction -->
+<div class="flex-1 flex flex-col gap-2 w-full">
+<div class="flex items-center justify-between text-caption-sm text-on-surface-variant">
+<span class="">Ngân hàng thụ hưởng:</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">MB Bank (Quân Đội)</span>
+</div>
+<div class="flex items-center justify-between text-caption-sm text-on-surface-variant">
+<span class="">Số tài khoản:</span>
+<div class="flex items-center gap-1.5">
+<span class="font-body-md-semibold text-body-md-semibold text-primary tracking-wide">098725638899</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="navigator.clipboard.writeText('098725638899')" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-caption-sm text-on-surface-variant">
+<span class="">Tên chủ tài khoản:</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface uppercase">CONG TY VEXE EXPRESS VN</span>
+</div>
+<div class="flex items-center justify-between text-caption-sm text-on-surface-variant">
+<span class="">Nội dung chuyển khoản:</span>
+<div class="flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded">
+<span class="font-body-md-semibold text-body-md-semibold text-primary uppercase tracking-wider">VX560024</span>
+<button class="text-primary hover:opacity-80 transition-opacity" onclick="navigator.clipboard.writeText('VX560024')" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<p class="font-caption-xs text-caption-xs text-on-surface-variant mt-1 mb-0">Mở ứng dụng ngân hàng bất kỳ, chọn Quét QR và thanh toán đúng số tiền để hệ thống phát hành vé tự động ngay lập tức.</p>
+</div>
+</div>
+</div>
+</div>
+</label>
+<!-- Option 2: ATM / VNPay -->
+<label class="cursor-pointer group block">
+<input class="peer hidden" name="payment_method" type="radio" value="vnpay">
+<div class="p-4 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-high transition-all flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center peer-checked:group-[]:bg-primary transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface-container-low peer-checked:group-[]:bg-on-primary"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">account_balance</span>
+<div class="flex flex-col">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Thẻ ATM nội địa / Internet Banking</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Cổng thanh toán quốc gia VNPAY (Hơn 40 ngân hàng)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-caption-xs">
+<span class="bg-surface-container-lowest px-2 py-1 rounded font-body-md-semibold text-secondary">VNPAY</span>
+</div>
+</div>
+</label>
+<!-- Option 3: Visa/Mastercard/JCB -->
+<label class="cursor-pointer group block">
+<input class="peer hidden" name="payment_method" type="radio" value="credit_card">
+<div class="p-4 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-high transition-all flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center peer-checked:group-[]:bg-primary transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface-container-low peer-checked:group-[]:bg-on-primary"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">credit_card</span>
+<div class="flex flex-col">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Thẻ thanh toán quốc tế</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Visa, MasterCard, JCB, American Express</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded font-caption-xs text-primary font-bold">VISA</span>
+<span class="bg-surface-container-lowest px-2 py-0.5 rounded font-caption-xs text-error font-bold">MC</span>
+</div>
+</div>
+</label>
+<!-- Option 4: E-Wallets -->
+<label class="cursor-pointer group block">
+<input class="peer hidden" name="payment_method" type="radio" value="ewallet">
+<div class="p-4 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-high transition-all flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center peer-checked:group-[]:bg-primary transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface-container-low peer-checked:group-[]:bg-on-primary"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[22px]">account_balance_wallet</span>
+<div class="flex flex-col">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Ví điện tử</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">MoMo, ZaloPay, ShopeePay</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="bg-error text-on-error font-caption-xs px-2 py-0.5 rounded font-bold">MoMo</span>
+<span class="bg-secondary text-on-secondary font-caption-xs px-2 py-0.5 rounded font-bold">Zalo</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Promo Code Input Group -->
+<div class="pt-4 mt-2">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface mb-2 block">Mã ưu đãi / Voucher khuyến mãi</span>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">sell</span>
+<input class="w-full h-11 pl-10 pr-4 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-xs uppercase tracking-wider" id="voucher-input" placeholder="Nhập mã ưu đãi (ví dụ: VEXEVUI)" type="text" value="KM20K">
+</div>
+<button class="h-11 px-6 rounded-lg bg-primary-container text-on-primary font-body-md-semibold text-body-md-semibold hover:bg-primary transition-colors flex items-center gap-1 shadow-xs" id="btn-apply-voucher" type="button">
+<span class="">Đã áp dụng</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+<p class="font-caption-xs text-caption-xs text-tertiary mt-2 flex items-center gap-1 mb-0">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+              Áp dụng thành công mã KM20K - Bạn được giảm ngay 20.000đ cho chuyến đi!
+            </p>
+</div>
+<!-- Terms and Agreement Checkbox -->
+<div class="pt-2">
+<label class="flex items-start gap-3 cursor-pointer group select-none">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" id="terms-checkbox" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant leading-snug">
+                Tôi đã đọc, hiểu rõ và hoàn toàn đồng ý với
+                <a class="text-primary hover:underline font-body-md-medium" href="#">Điều khoản sử dụng dịch vụ</a>
+                và
+                <a class="text-primary hover:underline font-body-md-medium" href="#">Chính sách hoàn/hủy vé</a>
+                của nhà xe Phương Trang &amp; VexeExpress.
+              </span>
+</label>
+</div>
+<!-- Primary & Secondary CTA Buttons -->
+<div class="flex flex-col sm:flex-row gap-3 pt-2">
+<a class="h-12 px-6 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md-semibold text-body-md-semibold flex items-center justify-center gap-2 transition-colors order-2 sm:order-1 text-decoration-none" data-path="chon-ghe" href="#">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span class="">Quay lại chọn ghế</span>
+</a>
+<button class="h-12 px-8 flex-1 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-md-semibold text-body-md-semibold flex items-center justify-center gap-2 shadow-md transition-all order-1 sm:order-2 active:scale-[0.99]" id="btn-confirm-payment" onclick="handlePaymentSubmit()" type="button">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+<span id="submit-text" class="">Xác nhận thanh toán 540.000đ</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Sticky Trip & Pricing Summary (Col 5/12) -->
+<div class="lg:col-span-5 flex flex-col gap-6 sticky top-20">
+<!-- Summary Card Container -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-5">
+<!-- Header Route Info -->
+<div class="flex items-center justify-between pb-4 bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[24px]">directions_bus</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Sài Gòn ➔ Đà Lạt</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Phương Trang (FUTA Bus Lines)</span>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-caption-xs text-caption-xs px-2.5 py-1 rounded-md font-bold">VIP 34 Phòng</span>
+</div>
+<!-- Trip Timeline & Station Details -->
+<div class="flex flex-col gap-3 py-1">
+<div class="flex items-start gap-3 relative">
+<!-- Visual Vertical Timeline Line -->
+<div class="flex flex-col items-center mt-1">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<div class="w-0.5 h-12 bg-surface-container-high my-1"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+</div>
+<!-- Station Text Nodes -->
+<div class="flex-1 flex flex-col justify-between h-20">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">23:00, Thứ Sáu 25/10/2024</span>
+<p class="font-caption-sm text-caption-sm text-on-surface-variant mb-0">Bến xe Miền Đông Mới (Quầy vé số 42)</p>
+</div>
+<span class="font-caption-xs text-caption-xs text-primary font-bold">Khởi hành</span>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">06:00, Thứ Bảy 26/10/2024 (Dự kiến)</span>
+<p class="font-caption-sm text-caption-sm text-on-surface-variant mb-0">Bến xe Liên tỉnh TP. Đà Lạt (Đường 3/4)</p>
+</div>
+<span class="font-caption-xs text-caption-xs text-tertiary font-bold">Điểm đến</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Chosen Seats & Passenger Intake Snapshot -->
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Ghế đã chọn:</span>
+<div class="flex items-center gap-1.5">
+<span class="bg-primary text-on-primary font-body-md-semibold text-body-md-semibold px-2.5 py-0.5 rounded">A05</span>
+<span class="bg-primary text-on-primary font-body-md-semibold text-body-md-semibold px-2.5 py-0.5 rounded">A06</span>
+<span class="font-caption-xs text-caption-xs text-on-surface-variant">(Tầng dưới - 2 vé)</span>
+</div>
+</div>
+<div class="h-px bg-surface-container-high w-full"></div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Hành khách:</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Nguyễn Văn An</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Số điện thoại:</span>
+<span class="font-body-md text-body-md text-on-surface">0987 654 321</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Email nhận vé điện tử:</span>
+<span class="font-body-md text-body-md text-on-surface">an.nguyen@example.com</span>
+</div>
+</div>
+</div>
+<!-- Price Calculation Matrix -->
+<div class="flex flex-col gap-2.5 pt-1">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Chi tiết giá thanh toán</span>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Giá vé tiêu chuẩn (2 x 280.000đ):</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">560.000đ</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Phí dịch vụ &amp; xuất vé điện tử:</span>
+<span class="text-tertiary font-body-md-semibold text-body-md-semibold">Miễn phí</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-tertiary">
+<div class="flex items-center gap-1">
+<span class="">Khuyến mãi Voucher (KM20K):</span>
+</div>
+<span class="font-body-md-semibold text-body-md-semibold">-20.000đ</span>
+</div>
+<div class="h-px bg-surface-container-high w-full my-1"></div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Tổng tiền thanh toán</span>
+<span class="font-caption-xs text-caption-xs text-on-surface-variant">Đã bao gồm thuế GTGT &amp; Bảo hiểm HK</span>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-primary-container">540.000đ</span>
+</div>
+</div>
+<!-- PCI-DSS Compliance & Security Reassurance Footer -->
+<div class="bg-surface-container-high p-3.5 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[26px]">shield_with_heart</span>
+<div class="flex flex-col">
+<span class="font-caption-xs text-caption-xs text-secondary font-bold uppercase tracking-wider">Thanh toán bảo mật chuẩn PCI-DSS</span>
+<p class="font-caption-xs text-caption-xs text-on-surface-variant mb-0">Mọi thông tin giao dịch được mã hóa và không lưu trữ trên máy chủ công cộng.</p>
+</div>
+</div>
+</div>
+<!-- Supportive Hotline Card -->
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div>
+<p class="font-caption-xs text-caption-xs text-on-surface-variant mb-0">Hỗ trợ khẩn cấp thanh toán</p>
+<p class="font-body-md-semibold text-body-md-semibold text-primary mb-0">1900 6868 (Nhánh 1)</p>
+</div>
+</div>
+<span class="font-caption-xs text-caption-xs text-tertiary bg-tertiary-container/10 px-2 py-1 rounded">24/7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript Behavior -->
+<script>
+    // Countdown Timer logic (10:00 -> 00:00)
+    let totalSeconds = 9 * 60 + 45;
+    const timerElement = document.getElementById('countdown-timer');
+
+    function updateCountdown() {
+      if (totalSeconds <= 0) {
+        timerElement.textContent = "00:00";
+        timerElement.classList.add("animate-pulse");
+        return;
+      }
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      timerElement.textContent =
+        (minutes < 10 ? "0" + minutes : minutes) + ":" +
+        (seconds < 10 ? "0" + seconds : seconds);
+      totalSeconds--;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Mock payment submission flow
+    function handlePaymentSubmit() {
+      const checkbox = document.getElementById('terms-checkbox');
+      if (!checkbox.checked) {
+        alert('Vui lòng đồng ý với Điều khoản & Chính sách trước khi tiếp tục.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('btn-confirm-payment');
+      const submitText = document.getElementById('submit-text');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-75');
+      submitText.textContent = 'Đang khởi tạo thanh toán...';
+
+      setTimeout(function() {
+        alert('Thanh toán 540.000đ thành công. Đang chuyển đến trang nhận vé...');
+        window.location.href = 'nhan-ve.html';
+      }, 1200);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] mt-16"><div class="max-w-7xl mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10"><div class="flex flex-col gap-3"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHTisipXpZvo0fpD7hqTOULEK_yo6E48DaH78QBeloSHz8iQm9ltUEtmPs9tiPonXJTi_XLFv1y-TsHgFKE59daSbfhk24xe9YGuWReFEGlqgG20z2kr6cY4PiDljOYnkbYFN_P38TqpG5r0sRDFlDjpGAbrvzlIeWuT_TWBRP8VfYmqSFE0T2S7WDkWuT3f6BtN4hPZkf4kDobCWIZ2w6rFBY7e5XS455lw8ZqmwriIIvEBzbMyj2_8raoQ76gyjz-Hk" alt="VietBus Logo" class="h-8 w-auto rounded-md object-contain"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">VietBus</span></div><p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Hệ thống kết nối và đặt vé xe khách liên tỉnh chất lượng cao hàng đầu Việt Nam. Nhanh chóng, tiện lợi và bảo mật tuyệt đối.</p><div class="flex items-center gap-2 text-xs text-slate-600 font-medium mt-3"><svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg><span class="">Bảo chứng phòng vé điện tử 24/7</span></div></div><div class="flex flex-col gap-3"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Tổng đài Chăm sóc &amp; Đặt vé</span><div class="flex flex-col gap-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">call</span><span class="font-headline-sm text-headline-sm text-primary font-bold">1900 6868</span></div><span class="font-caption-sm text-caption-sm text-on-surface-variant">Hỗ trợ từ 05:00 đến 23:00 hàng ngày (1.000đ/phút)</span><div class="flex items-center gap-2 mt-2"><span class="material-symbols-outlined text-secondary text-[18px]">mail</span><span class="font-body-md text-body-md text-on-surface-variant">hotro@vexeexpress.vn</span></div></div></div><div class="flex flex-col gap-3"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Quy định &amp; Hướng dẫn</span><ul class="flex flex-col gap-2 p-0 m-0 list-none"><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="chinh-sach-huy-tra" href="#">Chính sách hủy vé &amp; hoàn tiền</a></li><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="quy-che-hoat-dong" href="#">Quy chế vận chuyển hành khách</a></li><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="cau-hoi-thuong-gap" href="#">Câu hỏi thường gặp (FAQs)</a></li><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="huong-dan-thanh-toan" href="#">Hướng dẫn thanh toán an toàn</a></li></ul></div><div class="flex flex-col gap-3"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Phương thức thanh toán</span><p class="font-caption-sm text-caption-sm text-on-surface-variant">Chấp nhận thanh toán bảo mật đa kênh:</p><div class="grid grid-cols-2 gap-2 mt-1"><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-primary">VietQR</span></div><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-error">MoMo</span></div><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-secondary">VNPay</span></div><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Visa / MC</span></div></div></div></div><div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low rounded-xl px-6 py-4"><p class="font-caption-sm text-caption-sm text-on-surface-variant m-0">© 2024 VexeExpress Vietnam JSC. Giấy phép kinh doanh vận tải số 0102030405 do Sở GTVT cấp.</p><div class="flex items-center gap-6"><span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Chứng nhận bảo mật PCI-DSS</span><span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Đã thông báo Bộ Công Thương</span></div></div></div></footer>
+
+
+
+
+
+
+
+<script src="../js/main.js"></script>
+</body></html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>VexeExpress - Đặt Vé Xe Khách Liên Tỉnh</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary": "#006329",
+        "inverse-surface": "#213145",
+        "secondary": "#006591",
+        "tertiary-fixed": "#7ffc97",
+        "inverse-on-surface": "#eaf1ff",
+        "outline": "#737686",
+        "surface-dim": "#cbdbf5",
+        "inverse-primary": "#b4c5ff",
+        "secondary-container": "#39b8fd",
+        "on-primary": "#ffffff",
+        "on-secondary": "#ffffff",
+        "surface-container-high": "#dce9ff",
+        "surface-bright": "#f8f9ff",
+        "surface-tint": "#0053db",
+        "on-tertiary-fixed-variant": "#005320",
+        "on-secondary-fixed": "#001e2f",
+        "on-surface": "#0b1c30",
+        "on-error-container": "#93000a",
+        "error": "#ba1a1a",
+        "on-tertiary-container": "#c7ffca",
+        "primary-container": "#2563eb",
+        "surface-variant": "#d3e4fe",
+        "primary-fixed": "#dbe1ff",
+        "surface-container-low": "#eff4ff",
+        "on-surface-variant": "#434655",
+        "surface-container-highest": "#d3e4fe",
+        "surface-container": "#e5eeff",
+        "tertiary-container": "#007f36",
+        "on-tertiary-fixed": "#002109",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed": "#00174b",
+        "outline-variant": "#c3c6d7",
+        "on-background": "#0b1c30",
+        "error-container": "#ffdad6",
+        "secondary-fixed-dim": "#89ceff",
+        "on-tertiary": "#ffffff",
+        "surface": "#f8f9ff",
+        "primary-fixed-dim": "#b4c5ff",
+        "background": "#f8f9ff",
+        "on-secondary-container": "#004666",
+        "tertiary-fixed-dim": "#62df7d",
+        "on-secondary-fixed-variant": "#004c6e",
+        "primary": "#004ac6",
+        "on-primary-container": "#eeefff",
+        "secondary-fixed": "#c9e6ff",
+        "on-primary-fixed-variant": "#003ea8",
+        "on-error": "#ffffff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "gutter": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-2xl": "3rem",
+        "gutter-sm": "1rem",
+        "margin": "2rem",
+        "space-xl": "2rem",
+        "margin-mobile": "1rem",
+        "space-sm": "0.5rem",
+        "gutter-lg": "2rem"
+      },
+      "fontFamily": {
+        "caption-xs": ["Inter"],
+        "headline-sm": ["Inter"],
+        "label-md": ["Inter"],
+        "body-md-medium": ["Inter"],
+        "headline-xl-mobile": ["Inter"],
+        "headline-md": ["Inter"],
+        "headline-lg-mobile": ["Inter"],
+        "headline-xl": ["Inter"],
+        "body-lg-medium": ["Inter"],
+        "body-md": ["Inter"],
+        "caption-sm": ["Inter"],
+        "body-md-semibold": ["Inter"],
+        "headline-lg": ["Inter"],
+        "body-lg": ["Inter"]
+      },
+      "fontSize": {
+        "caption-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+        "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "body-md-medium": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500"}],
+        "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+        "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+        "body-lg-medium": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500"}],
+        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "caption-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "body-md-semibold": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600"}],
+        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6"><div class="flex items-center gap-8"><a class="flex items-center gap-2.5 text-decoration-none group" data-path="trang-chu" href="#"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDDsot7qKFcTVD_JJX8VcLGsT3PM67kZGvpSI6O3gpdDEa2VBRsg01KX8DxSaU0JKHq94Wm-5UEHVw_h3kwIVf3zUAr0H2-vfSIyz-bREQKsUTPbP6WjN4LbXrAth0CIl1Yuaj6o7EAw0EtdSC2RAOKR_JArt2YbgeZCqpQX6ZEPvPyL6UoGBqqfXH-EZ-hs8Qs39dHQrvgqYFmptk8UU2P0LO2Rz_5dWVVGQ-XvLbIC_d24N9q7F1nMcMk9zESP_JrWQ" alt="VietBus Logo" class="h-9 w-auto object-contain"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">VietBus</span><span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Xe Khách Liên Tỉnh</span></div></a><nav class="hidden lg:flex items-center gap-1 p-1" data-active-classes="bg-surface-container-high text-primary font-body-md-semibold rounded-lg"><a class="px-3.5 py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="tim-chuyen" href="#">Tìm chuyến</a><a class="px-3.5 py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="ve-cua-toi" href="#">Vé của tôi</a><a class="px-3.5 py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="tra-cuu-ve" href="#">Tra cứu vé</a></nav></div><div class="flex items-center gap-4"><div class="hidden sm:flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full"><span class="material-symbols-outlined text-secondary text-[18px]">account_balance_wallet</span><span class="font-caption-sm text-caption-sm text-on-surface-variant">Số dư:</span><span class="font-body-md-semibold text-body-md-semibold text-on-surface">1.250.000đ</span></div><button aria-label="Thông báo" class="relative w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-3 pl-2"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden md:flex flex-col text-left"><span class="font-body-md-semibold text-body-md-semibold text-on-surface leading-tight">Nguyễn Văn An</span><span class="font-caption-xs text-caption-xs text-on-surface-variant">Khách hàng thân thiết</span></div></div></div></div></header><main class="w-full pt-16 min-h-[calc(100vh-280px)] bg-background"><div class="flex flex-col w-full">
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-high/40 via-surface-container-low/30 to-background pb-12 pt-8">
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 top-1/2 w-80 h-80 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary mb-4 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-caption-sm text-caption-sm uppercase tracking-wider font-semibold">Cổng Tra Cứu Điện Tử Chính Thức</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mb-3">
+          Tra cứu thông tin vé xe trực tuyến
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          Dễ dàng kiểm tra lịch trình, trạng thái vé, in lại vé điện tử hoặc quản lý hành trình mà không cần đăng nhập tài khoản.
+        </p>
+</div>
+<!-- Central Search Box Card -->
+<div class="max-w-4xl mx-auto bg-surface-container-lowest rounded-2xl shadow-[0_4px_24px_rgba(11,28,48,0.06)] p-6 sm:p-8 md:p-10 transition-all">
+<form class="flex flex-col gap-6" id="ticketSearchForm" onsubmit="event.preventDefault(); document.getElementById('searchResultSection').scrollIntoView({behavior: 'smooth'});">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Field 1: Ticket ID -->
+<div class="flex flex-col gap-2">
+<label class="font-body-md-semibold text-body-md-semibold text-on-surface flex items-center justify-between" for="ticketCode">
+<span class="">Mã số vé / Mã đặt chỗ <span class="text-error">*</span></span>
+<span class="font-caption-xs text-caption-xs text-on-surface-variant font-normal">Ký tự in hoa</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">confirmation_number</span>
+<input class="w-full h-11 pl-11 pr-4 bg-surface-container-low/50 hover:bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-md-medium text-body-md-medium rounded-lg outline-none transition-all placeholder:text-outline shadow-inner" id="ticketCode" name="ticketCode" placeholder="VD: VX-892415" required="" type="text" value="VX-892415">
+</div>
+</div>
+<!-- Field 2: Phone Number -->
+<div class="flex flex-col gap-2">
+<label class="font-body-md-semibold text-body-md-semibold text-on-surface flex items-center justify-between" for="phoneNumber">
+<span class="">Số điện thoại đặt vé <span class="text-error">*</span></span>
+<span class="font-caption-xs text-caption-xs text-on-surface-variant font-normal">Đã dùng khi mua</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">phone_iphone</span>
+<input class="w-full h-11 pl-11 pr-4 bg-surface-container-low/50 hover:bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-body-md-medium text-body-md-medium rounded-lg outline-none transition-all placeholder:text-outline shadow-inner" id="phoneNumber" name="phoneNumber" placeholder="VD: 0987654321" required="" type="tel" value="0987654321">
+</div>
+</div>
+</div>
+<!-- Submit Action Button -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2 font-caption-sm text-caption-sm text-on-surface-variant">
+<a class="inline-flex items-center gap-1.5 text-primary hover:underline font-body-md-medium text-body-md-medium" href="javascript:void(0)" onclick="alert('Hệ thống đã gửi liên kết tra cứu mã qua SMS số 0987***321')">
+<span class="material-symbols-outlined text-[16px]">sms</span>
+                Quên mã vé? Nhận lại mã qua SMS/Zalo
+              </a>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">support_agent</span>
+                Tổng đài hỗ trợ: <strong class="text-on-surface">1900 6067</strong>
+</span>
+</div>
+<button class="h-11 px-7 bg-primary hover:bg-primary-container active:scale-[0.99] text-on-primary font-body-md-semibold text-body-md-semibold rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer whitespace-nowrap" type="submit">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span class="">Tra cứu thông tin vé</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Query Result Section -->
+<section class="w-full max-w-7xl mx-auto px-6 py-10" id="searchResultSection">
+<div class="flex flex-col gap-6">
+<!-- Status Notice Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface m-0 leading-tight">Đã tìm thấy 01 vé xe hợp lệ</h2>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Thông tin được đồng bộ trực tiếp từ tổng đài nhà xe Phương Trang FUTA Bus Lines</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-caption-sm text-caption-sm self-end sm:self-center">
+<span class="material-symbols-outlined text-[16px] text-tertiary">sync</span>
+          Cập nhật lúc: 10:42 Hôm nay
+        </div>
+</div>
+<!-- Main Result Ticket Card -->
+<div class="w-full bg-surface-container-lowest rounded-2xl shadow-[0_2px_16px_rgba(11,28,48,0.05)] overflow-hidden">
+<!-- Ticket Meta Header -->
+<div class="p-6 md:p-8 bg-surface-container flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">directions_bus</span>
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Mã vé: #VX-892415</span>
+</div>
+<div class="hidden sm:block w-px h-5 bg-outline-variant"></div>
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+              Ngày đặt: <strong>20/10/2024</strong> (14:15)
+            </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-caption-xs text-caption-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">check</span>
+              ĐÃ THANH TOÁN
+            </span>
+</div>
+</div>
+<!-- Ticket Body Details (Asymmetric Bento Grid) -->
+<div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Route Itinerary Column -->
+<div class="lg:col-span-7 flex flex-col justify-between gap-6">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-bold">
+                    PT
+                  </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface m-0">Nhà xe Phương Trang</h3>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Dòng xe Limousine VIP 34 Phòng Riêng Biệt</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-caption-xs text-caption-xs font-semibold">Chuyến đêm</span>
+</div>
+<!-- Route Visual Timeline -->
+<div class="p-5 rounded-xl bg-surface-container-low flex flex-col gap-6">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="w-3 h-3 rounded-full bg-primary mt-1.5 ring-4 ring-primary/20"></div>
+<div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-none block mb-1">23:00</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface block">Bến Xe Miền Đông Mới (TP. Hồ Chí Minh)</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Quầy vé số 12, P. Long Bình, TP. Thủ Đức</span>
+</div>
+</div>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant text-right whitespace-nowrap">25/10/2024</span>
+</div>
+<!-- Middle Journey Indicator -->
+<div class="ml-1.5 pl-6 flex items-center gap-3 text-on-surface-variant font-caption-sm text-caption-sm">
+<div class="w-px h-6 bg-outline-variant"></div>
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span class="">Thời gian di chuyển dự kiến ~ 6 giờ 30 phút (Nghỉ 1 trạm dừng)</span>
+</div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="w-3 h-3 rounded-full bg-tertiary mt-1.5 ring-4 ring-tertiary/20"></div>
+<div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-none block mb-1">05:30</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface block">Bến Xe Liên Tỉnh Đà Lạt (Lâm Đồng)</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Số 01 Tô Hiến Thành, Phường 3, TP. Đà Lạt</span>
+</div>
+</div>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant text-right whitespace-nowrap">26/10/2024</span>
+</div>
+</div>
+</div>
+<!-- Boarding Notice Strip -->
+<div class="p-3.5 rounded-lg bg-surface-container flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px]">info</span>
+<p class="font-caption-sm text-caption-sm text-on-surface-variant m-0">
+                Hành khách vui lòng có mặt tại điểm đón trước <strong class="text-on-surface">30 phút</strong> để nhận giường và xếp hành lý. Mang theo CCCD/Vé điện tử này để đối soát.
+              </p>
+</div>
+</div>
+<!-- Passenger & Billing Details Column -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-6 p-6 rounded-xl bg-surface-container-low">
+<div class="flex flex-col gap-4">
+<span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+                Chi tiết hành khách &amp; vị trí
+              </span>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-xs text-caption-xs text-on-surface-variant block mb-1 uppercase">Hành khách</span>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface truncate block">Nguyễn Văn An</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">0987***321</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-xs text-caption-xs text-on-surface-variant block mb-1 uppercase">Số ghế / Giường</span>
+<span class="font-headline-md text-headline-md text-primary font-bold block">A05</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Giường VIP tầng 1</span>
+</div>
+</div>
+<!-- Price Breakdown Matrix -->
+<div class="flex flex-col gap-2 p-3.5 rounded-lg bg-surface-container-lowest">
+<div class="flex justify-between items-center font-caption-sm text-caption-sm text-on-surface-variant">
+<span class="">Giá cước vé giường nằm VIP</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">280.000đ</span>
+</div>
+<div class="flex justify-between items-center font-caption-sm text-caption-sm text-on-surface-variant">
+<span class="">Bảo hiểm hành khách bắt buộc</span>
+<span class="text-tertiary font-body-md-medium text-body-md-medium">Đã bao gồm</span>
+</div>
+<div class="flex justify-between items-center font-caption-sm text-caption-sm text-on-surface-variant">
+<span class="">Phí dịch vụ &amp; Nước suối / Khăn lạnh</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Miễn phí</span>
+</div>
+<div class="pt-2 flex justify-between items-baseline">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Tổng tiền thanh toán</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">280.000đ</span>
+</div>
+</div>
+<!-- QR Code Mockup Component -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-surface-container-lowest">
+<!-- Inline Crisp Vector Boarding QR Code -->
+<div class="w-16 h-16 p-1 bg-surface-container-lowest rounded flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-full h-full text-on-surface fill-current" viewBox="0 0 100 100">
+<path d="M0 0h32v32H0V0zm6 6v20h20V6H6zm6 6h8v8h-8v-8zm56-12h32v32H68V0zm6 6v20h20V6H74zm6 6h8v8h-8v-8zM0 68h32v32H0V68zm6 6v20h20V74H6zm6 6h8v8h-8v-8zm40-74h8v8h-8V0zm-8 16h8v8h-8v-8zm16 8h8v16h-8V24zm-8 16h16v8h-16v-8zm24 0h16v8h-16v-8zm-8 16h16v8h-16v-8zm-16 0h8v16h-8V56zm24 16h16v16h-16V72zm-8 16h8v12h-8V88zm-16-8h8v20h-8V80zm-8-16h8v8h-8v-8z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface">Mã QR Check-in nhanh</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant leading-tight">Đưa mã này cho phụ xe tại cửa để lên xe nhanh chóng không cần đổi vé giấy.</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Buttons Array -->
+<div class="flex flex-col gap-2.5 pt-2">
+<button class="w-full h-11 bg-primary hover:bg-primary-container active:scale-[0.99] text-on-primary font-body-md-semibold text-body-md-semibold rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer" onclick="alert('Đang tạo và tải xuống bản in vé PDF chính thức có mã Barcode...')" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="">Xem chi tiết &amp; Tải vé PDF</span>
+</button>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+<button class="h-10 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-body-md-medium text-body-md-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-sm" onclick="alert('Mã vé và link theo dõi xe đã được gửi lại vào số 0987***321 qua SMS/Zalo.')" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">send_to_mobile</span>
+<span class="">Gửi mã vé qua SMS</span>
+</button>
+<button class="h-10 bg-surface-container-lowest hover:bg-error-container text-error font-body-md-medium text-body-md-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-sm" onclick="if(confirm('Bạn có chắc chắn muốn gửi yêu cầu hủy vé #VX-892415 theo quy chế vận tải?')) alert('Yêu cầu đã được tiếp nhận. Bộ phận CSKH sẽ xác nhận hoàn tiền qua STK đặt vé.');" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span class="">Yêu cầu hủy vé</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Mini Visual Destination Feature -->
+<div class="p-6 md:p-8 bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<img class="w-20 h-20 rounded-xl object-cover shadow-sm shrink-0" data-alt="Scenic pine tree misty mountains of Da Lat city Vietnam at dawn with winding highway roads soft morning golden hour lighting tranquil travel mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcfYn_QUjIhnnbqYkSvlsFNLlqqLEmBm3HSxDFWrOjLgEEifAzoDs2J0D-IdCdliR4rA1Nw2uqKxzwl9OBKhKGYrLZ-Ys0JSWt-ishhDNI9w58pQLYrjFJ7NddMnzs-Jf6TaOM_ZsrY85ICQC5k80uS0jQLv26VfLKl3qJx6CVB1FrxdilEzZUKMiLwefDKPPOzYQyifHq4Fh3e3CahCji4k4Hz-stsReCNfjK6ZNqFeEfpXA-cBajYw">
+<div>
+<span class="font-caption-xs text-caption-xs text-primary font-bold uppercase tracking-wider">Hành trình trải nghiệm</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface m-0">Chào đón bạn đến với Xứ sở ngàn hoa Đà Lạt</h4>
+<p class="font-caption-sm text-caption-sm text-on-surface-variant m-0 mt-0.5">Dự báo thời tiết lúc đến nơi: 17°C, se lạnh có sương mù nhẹ. Nhớ mang theo áo ấm!</p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<a class="w-full md:w-auto text-center px-4 py-2 rounded-lg bg-surface-container-highest hover:bg-surface-container-high text-primary font-body-md-medium text-body-md-medium transition-colors" data-path="tra-cuu-xe-den" href="#">
+              Định vị xe trực tiếp (GPS)
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section (3-Column Layout) -->
+<section class="w-full max-w-7xl mx-auto px-6 py-12">
+<div class="flex flex-col gap-2 mb-8 text-center sm:text-left">
+<div class="flex items-center justify-center sm:justify-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">help_center</span>
+<span class="font-caption-sm text-caption-sm text-primary uppercase font-bold tracking-wider">Hỗ trợ khách hàng</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight m-0">
+        Câu hỏi thường gặp khi tra cứu vé
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl m-0">
+        Mọi thông tin thắc mắc về quyền lợi hành khách, tình trạng thanh toán và chính sách hoàn hủy trực tuyến.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- FAQ Card 1 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface m-0 leading-snug">
+            Làm sao để biết vé đã thanh toán thành công?
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed m-0">
+            Khi tra cứu vé, trạng thái sẽ hiển thị nhãn xanh <strong>"ĐÃ THANH TOÁN"</strong> kèm mã QR Check-in. Đồng thời bạn sẽ nhận được tin nhắn SMS hoặc Email thông báo giao dịch thành công ngay trong vòng 60 giây sau khi chuyển khoản.
+          </p>
+</div>
+<div class="pt-6">
+<a class="inline-flex items-center gap-1 font-body-md-semibold text-body-md-semibold text-primary hover:underline" href="#">
+<span class="">Xem biểu phí thanh toán</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- FAQ Card 2 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary mb-1">
+<span class="material-symbols-outlined text-[24px]">mark_email_unread</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface m-0 leading-snug">
+            Tôi không nhận được email/tin nhắn xác nhận vé?
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed m-0">
+            Vui lòng kiểm tra thư mục Rác/Spam của Email hoặc đường truyền SMS. Bạn có thể dùng tính năng <strong>"Gửi mã vé qua SMS"</strong> ở trên hoặc liên hệ tổng đài <strong>1900 6067</strong> để nhân viên kích hoạt gửi lại mã ngay lập tức.
+          </p>
+</div>
+<div class="pt-6">
+<a class="inline-flex items-center gap-1 font-body-md-semibold text-body-md-semibold text-primary hover:underline" href="#">
+<span class="">Kiểm tra danh bạ SMS tổng đài</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- FAQ Card 3 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-error mb-1">
+<span class="material-symbols-outlined text-[24px]">history_toggle_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface m-0 leading-snug">
+            Thời gian được phép hủy vé sau khi tra cứu?
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed m-0">
+            Quý khách có thể yêu cầu hủy vé trực tuyến tối thiểu <strong>trước giờ khởi hành 12 tiếng</strong> (ngày thường, phí hoàn 10%) hoặc trước 24 tiếng (dịp Lễ/Tết). Tiền hoàn sẽ chuyển lại vào tài khoản thanh toán ban đầu từ 24h - 48h.
+          </p>
+</div>
+<div class="pt-6">
+<a class="inline-flex items-center gap-1 font-body-md-semibold text-body-md-semibold text-primary hover:underline" href="#">
+<span class="">Chi tiết quy chế hoàn trả vé</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Security Guarantee Badge Bar -->
+<div class="mt-12 p-6 rounded-2xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-tertiary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]">gavel</span>
+</div>
+<div>
+<span class="font-body-md-semibold text-body-md-semibold text-on-surface block">Cam kết chuẩn phòng vé điện tử liên tỉnh</span>
+<span class="font-caption-sm text-caption-sm text-on-surface-variant">Vé tra cứu trên VexeExpress có đầy đủ giá trị pháp lý tương đương vé giấy truyền thống được phát hành bởi các nhà xe.</span>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<div class="px-3.5 py-1.5 rounded-lg bg-surface-container-lowest font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider font-semibold shadow-sm">
+          Mã hóa SSL 256-bit
+        </div>
+<div class="px-3.5 py-1.5 rounded-lg bg-surface-container-lowest font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider font-semibold shadow-sm">
+          Xác thực SMS OTP
+        </div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] mt-16"><div class="max-w-7xl mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10"><div class="flex flex-col gap-3"><div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqAh4kyRr2McDrscCwsSFlRnGYEjFIiIikSNlgHlBcJnsaxtiRsWOJRSYTX7ObIYmOiO6zBlciQmHR4jU4f-91x_BbKdct5ZSLW3jWumFmb7wsSGRKhMox278N5nvf_FXqe_dV8yBUkY3yiiI0xM4Ojg3Kg3YpVgxs-rZim1mS1d1riWT7f8IKmInANpfSaShhSYA-hl3941a3XOfX1_LxdGhcaDswyzUK1wHbM16DhIpTO1vFVsVSfzCTfSQ1KNDFf4A" alt="VietBus Logo" class="h-8 w-auto object-contain"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">VietBus</span></div><p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Hệ thống kết nối và đặt vé xe khách liên tỉnh chất lượng cao hàng đầu Việt Nam. Nhanh chóng, tiện lợi và bảo mật tuyệt đối.</p><div class="flex items-center gap-2 mt-1"><span class="material-symbols-outlined text-tertiary text-[20px]">verified</span><span class="font-caption-sm text-caption-sm text-on-surface-variant">Bảo chứng phòng vé điện tử 24/7</span></div></div><div class="flex flex-col gap-3"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Tổng đài Chăm sóc &amp; Đặt vé</span><div class="flex flex-col gap-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">call</span><span class="font-headline-sm text-headline-sm text-primary font-bold">1900 6868</span></div><span class="font-caption-sm text-caption-sm text-on-surface-variant">Hỗ trợ từ 05:00 đến 23:00 hàng ngày (1.000đ/phút)</span><div class="flex items-center gap-2 mt-2"><span class="material-symbols-outlined text-secondary text-[18px]">mail</span><span class="font-body-md text-body-md text-on-surface-variant">hotro@vexeexpress.vn</span></div></div></div><div class="flex flex-col gap-3"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Quy định &amp; Hướng dẫn</span><ul class="flex flex-col gap-2 p-0 m-0 list-none"><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="chinh-sach-huy-tra" href="#">Chính sách hủy vé &amp; hoàn tiền</a></li><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="quy-che-hoat-dong" href="#">Quy chế vận chuyển hành khách</a></li><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="cau-hoi-thuong-gap" href="#">Câu hỏi thường gặp (FAQs)</a></li><li class="p-0 m-0"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="huong-dan-thanh-toan" href="#">Hướng dẫn thanh toán an toàn</a></li></ul></div><div class="flex flex-col gap-3"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Phương thức thanh toán</span><p class="font-caption-sm text-caption-sm text-on-surface-variant">Chấp nhận thanh toán bảo mật đa kênh:</p><div class="grid grid-cols-2 gap-2 mt-1"><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-primary">VietQR</span></div><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-error">MoMo</span></div><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-secondary">VNPay</span></div><div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low"><span class="font-body-md-semibold text-body-md-semibold text-on-surface">Visa / MC</span></div></div></div></div><div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low rounded-xl px-6 py-4"><p class="font-caption-sm text-caption-sm text-on-surface-variant m-0">© 2024 VexeExpress Vietnam JSC. Giấy phép kinh doanh vận tải số 0102030405 do Sở GTVT cấp.</p><div class="flex items-center gap-6"><span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Chứng nhận bảo mật PCI-DSS</span><span class="font-caption-xs text-caption-xs text-on-surface-variant uppercase tracking-wider">Đã thông báo Bộ Công Thương</span></div></div></div></footer>
+
+
+
+<script src="../js/main.js"></script>
+</body></html>
